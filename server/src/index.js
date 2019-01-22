@@ -1,19 +1,25 @@
-let mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const config = require("./../config");
+const express = require("express");
+const port = config.port;
 
-const server = "ds163694.mlab.com:63694";
-const database = "instapic";
-const user = "root";
-const password = "rootroot1";
+//CONNEXION TO DATABASE
+mongoose
+  .connect(
+    config.db,
+    { useNewUrlParser: true }
+  )
+  .then(() => {
+    console.log("Connected to mongoDB");
+  })
+  .catch(e => {
+    console.log("Error while DB connecting");
+    console.log(e);
+  });
 
-mongoose.connect(`mongodb://${user}:${password}@${server}/${database}`);
+var app = express();
 
-let UserSchema = new mongoose.Schema({
-  name: String,
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  }
+// LISTEN ON PORT SERVER
+app.listen(port, () => {
+  console.log(`Listening on port ${port} ...`);
 });
-
-module.exports = mongoose.model("User", UserSchema);
