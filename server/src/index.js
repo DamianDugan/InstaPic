@@ -7,6 +7,7 @@ var app = express();
 
 const picture = require("../routes/pictureRoute");
 const register = require("../routes/registerRoute");
+const login = require("../routes/loginRoute");
 
 //CONNEXION TO DATABASE
 mongoose
@@ -30,7 +31,5 @@ app.listen(port, () => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/picture", picture);
+app.use("/login", login);
 app.use("/signup", register);
-app.use("/titi", titi);
-
-const tata = "tata";
