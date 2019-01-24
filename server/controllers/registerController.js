@@ -1,6 +1,6 @@
 const User = require("../src/models/userSchema");
 const bcrypt = require("bcrypt");
-const jsonwebtoken = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 
 //Just for test the communication between all files
 exports.test = function(req, res) {
@@ -23,6 +23,10 @@ exports.createNewUser = function(req, res) {
         if (err) {
           return res.send(err);
         }
+        var token = jwt.sign({ id: user._id }, config.secret, {
+          expiresIn: 86400 // expires in 24 hours
+        });
+        res.status(200).send({ auth: true, token: token });
         res.send("Picture Created successfully");
       });
     });
