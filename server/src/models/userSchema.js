@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-mongoose.connect(`mongodb://${user}:${password}@${server}/${database}`);
-
 const UserSchema = new Schema(
   {
     username: {
@@ -26,6 +24,14 @@ const UserSchema = new Schema(
     },
     following: {
       type: Array
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false
+    },
+    isBanned: {
+      type: Boolean,
+      default: false
     }
   },
   { timestamps: true }
