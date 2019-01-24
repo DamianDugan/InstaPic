@@ -26,11 +26,11 @@ const UserSchema = new Schema(
       type: Array
     },
     isAdmin: {
-      type: boolean,
+      type: Boolean,
       default: false
     },
     isBanned: {
-      type: boolean,
+      type: Boolean,
       default: false
     }
   },
