@@ -1,0 +1,56 @@
+<form
+  #signUpForm="ngForm"
+  (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)"
+>
+  <input
+    type="text"
+    #username="ngModel"
+    [(ngModel)]="userService.selectedUser.username"
+    name="username"
+    placeholder="Username"
+    required
+  />
+  <div *ngIf="signUpForm.submitted && !username.valid">
+    <label class="validation-message">This field is required.</label>
+  </div>
+  <input
+    type="email"
+    #email="ngModel"
+    [(ngModel)]="userService.selectedUser.email"
+    name="email"
+    placeholder="email"
+    required
+  />
+  <div *ngIf="signUpForm.submitted && !email.valid">
+    <label class="validation-message">This field is required.</label>
+  </div>
+  <input
+    type="password"
+    #password="ngModel"
+    [(ngModel)]="userService.selectedUser.password"
+    name="password"
+    placeholder="password"
+    required
+  />
+  <div *ngIf="signUpForm.submitted && !password.valid">
+    <label class="validation-message">This field is required.</label>
+  </div>
+  <input
+    type="password"
+    #confirm_password="ngModel"
+    [(ngModel)]="userService.selectedUser.confirm_password"
+    name="confirm_password"
+    placeholder="confirm_password"
+    required
+  />
+  <div *ngIf="signUpForm.submitted && !confirm_password.valid">
+    <label class="validation-message">This field is required.</label>
+  </div>
+  <input type="submit" value="Sign Up" />
+</form>
+
+<!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">Saved successfully</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">{{ serverErrorMessages }}</div>

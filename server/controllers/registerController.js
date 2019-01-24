@@ -14,8 +14,8 @@ exports.createNewUser = function(req, res) {
     password: req.body.password,
     confirm_password: req.body.confirm_password
   });
-  if (password === confirm_password) {
-    bcrypt.hash(password, 10, function(err, hash) {
+  if (req.bodypassword === req.body.confirm_password) {
+    bcrypt.hash(req.body.password, 10, function(err, hash) {
       if (err) {
         res.send("Password ans confirm password must be different...");
       }
@@ -23,10 +23,10 @@ exports.createNewUser = function(req, res) {
         if (err) {
           return res.send(err);
         }
-        var token = jwt.sign({ id: user._id }, config.secret, {
-          expiresIn: 86400 // expires in 24 hours
-        });
-        res.status(200).send({ auth: true, token: token });
+        // var token = jwt.sign({ id: user._id }, config.secret, {
+        //   expiresIn: 86400 // expires in 24 hours
+        // });
+        // res.status(200).send({ auth: true, token: token });
         res.send("Picture Created successfully");
       });
     });
