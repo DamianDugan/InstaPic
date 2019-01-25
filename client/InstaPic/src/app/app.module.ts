@@ -1,16 +1,15 @@
-//Built-in imports
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
-import { HttpClientModule } from "@angular/common/http";
-//Components imports
-import { PictureCreateComponent } from "./picture-components/picture-create/picture-create.component";
-import { AppComponent } from "./app.component";
-import { UserComponent } from "./user/user.component";
-import { SignUpComponent } from "./user/sign-up/sign-up.component";
-//Routes
-import { appRoutes } from "./routes";
+// Built-in imports
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+// Components imports
+import { PictureCreateComponent } from './picture-components/picture-create/picture-create.component';
+import { AppComponent } from './app.component';
+import { UserComponent } from './user/user.component';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
+// Routes
+import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './user/profile/profile.component';
 
 @NgModule({
@@ -21,12 +20,7 @@ import { ProfileComponent } from './user/profile/profile.component';
     PictureCreateComponent,
     ProfileComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes),
-    HttpClientModule
-  ],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
