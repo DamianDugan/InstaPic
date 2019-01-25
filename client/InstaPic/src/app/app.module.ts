@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { PictureCreateComponent } from './picture-components/picture-create/picture-create.component';
+
+@NgModule({
+  declarations: [AppComponent, PictureCreateComponent],
+  imports: [BrowserModule, FormsModule],
+=======
 //Built-in imports
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -19,6 +31,7 @@ import { appRoutes } from "./routes";
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
+>>>>>>> 0d4a9f6480194148adb36c40b03c90c7fb08c73d
   providers: [],
   bootstrap: [AppComponent]
 })
