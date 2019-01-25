@@ -1,14 +1,15 @@
-const mongoose = require('mongoose');
-const config = require('./../config');
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const mongoose = require("mongoose");
+const config = require("./../config");
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const port = config.port;
 var app = express();
 
-const picture = require('../routes/pictureRoute');
-const register = require('../routes/registerRoute');
-const login = require('../routes/loginRoute');
+const picture = require("../routes/pictureRoute");
+const register = require("../routes/registerRoute");
+const login = require("../routes/loginRoute");
+const user = require("../routes/userRoute");
 
 //CONNEXION TO DATABASE
 mongoose
@@ -17,10 +18,10 @@ mongoose
     { useNewUrlParser: true }
   )
   .then(() => {
-    console.log('Connected to mongoDB');
+    console.log("Connected to mongoDB");
   })
   .catch(e => {
-    console.log('Error while DB connecting');
+    console.log("Error while DB connecting");
     console.log(e);
   });
 
@@ -32,6 +33,6 @@ app.listen(port, () => {
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/picture', picture);
-app.use('/user', register);
-app.use('/login', login);
+app.use("/picture", picture);
+app.use("/user", register);
+app.use("/login", login);
