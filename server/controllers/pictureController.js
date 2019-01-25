@@ -1,8 +1,8 @@
-const Picture = require("../src/models/pictureSchema");
+const Picture = require('../src/models/pictureSchema');
 
 //Just for test the communication between all files
 exports.test = function(req, res) {
-  res.send("pictureController is ok :)");
+  res.send('pictureController is ok :)');
 };
 
 //Post a new picture
@@ -19,7 +19,7 @@ exports.pictureCreate = function(req, res) {
     if (err) {
       return res.send(err);
     }
-    res.send("Picture Created successfully");
+    res.send('Picture Created successfully');
   });
 };
 
@@ -30,7 +30,7 @@ exports.getAllPictures = function(req, res) {
       res.send(result);
     })
     .catch(err => {
-      res.send("Error : " + err);
+      res.send('ErrorMessage : ' + err);
     });
 };
 
@@ -38,7 +38,7 @@ exports.getAllPictures = function(req, res) {
 exports.getOnePicture = function(req, res) {
   Picture.findById(req.params.id, function(err, picture) {
     if (err) {
-      res.send("Picture does not exist...");
+      res.send('Picture does not exist...');
     }
     res.send(picture);
   });
@@ -48,8 +48,8 @@ exports.getOnePicture = function(req, res) {
 exports.deleteOnePicture = function(req, res) {
   Picture.findOneAndDelete(req.params.id, function(err) {
     if (err) {
-      res.send("Picture not found...");
+      res.send('Picture not found...');
     }
-    res.send("Picture deleted ! :)");
+    res.send('Picture deleted ! :)');
   });
 };

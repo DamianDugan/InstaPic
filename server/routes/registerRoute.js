@@ -5,6 +5,7 @@ const registerController = require("../controllers/registerController");
 
 router.get("/test", registerController.test);
 
-router.post("/create", registerController.createNewUser);
+router.post("/register", registerController.createNewUser);
+router.get("/", registerController.getAllUsers);
 
 module.exports = router;
