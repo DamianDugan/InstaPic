@@ -26,9 +26,10 @@ export class SignUpComponent implements OnInit {
       err => {
         if (err) {
           this.serverErrorMessages = err + "<br/>";
-        } else
+        } else {
           this.serverErrorMessages =
             "Something went wrong. Please contact admin";
+        }
       }
     );
   }
