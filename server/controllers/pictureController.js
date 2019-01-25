@@ -25,14 +25,13 @@ exports.pictureCreate = function(req, res) {
 
 //Get all picture all of album of all users
 exports.getAllPictures = function(req, res) {
-  Picture.find({}, function(err, pictures) {
-    var pictureMap = {};
-
-    pictures.forEach(function(picture) {
-      pictureMap[picture._id] = picture;
+  Picture.find()
+    .then(result => {
+      res.send(result);
+    })
+    .catch(err => {
+      res.send("Error : " + err);
     });
-    res.send(pictureMap);
-  });
 };
 
 //Get one picture by id
