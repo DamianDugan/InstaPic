@@ -10,13 +10,15 @@ import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 // Routes
 import { AppRoutingModule } from './app-routing.module';
+import { ProfileComponent } from './user/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     SignUpComponent,
-    PictureCreateComponent
+    PictureCreateComponent,
+    ProfileComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
