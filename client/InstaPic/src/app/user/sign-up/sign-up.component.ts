@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { UserService } from '../../shared/user.service';
-import { NgForm } from '@angular/forms';
+import { UserService } from "../../shared/user.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css'],
+  selector: "app-sign-up",
+  templateUrl: "./sign-up.component.html",
+  styleUrls: ["./sign-up.component.css"],
   providers: [UserService]
 })
 export class SignUpComponent implements OnInit {
@@ -25,10 +25,10 @@ export class SignUpComponent implements OnInit {
       },
       err => {
         if (err) {
-          this.serverErrorMessages = err.error.join('<br/>');
+          this.serverErrorMessages = err + "<br/>";
         } else {
           this.serverErrorMessages =
-            'Something went wrong. Please contact admin';
+            "Something went wrong. Please contact admin";
         }
       }
     );
@@ -36,12 +36,12 @@ export class SignUpComponent implements OnInit {
 
   resetForm(form: NgForm) {
     this.userService.selectedUser = {
-      username: '',
-      email: '',
-      password: '',
-      confirm_password: ''
+      username: "",
+      email: "",
+      password: "",
+      confirm_password: ""
     };
     form.resetForm();
-    this.serverErrorMessages = '';
+    this.serverErrorMessages = "";
   }
 }
