@@ -8,6 +8,7 @@ var app = express();
 
 const picture = require("../routes/pictureRoute");
 const register = require("../routes/registerRoute");
+const login = require("../routes/loginRoute");
 
 //CONNEXION TO DATABASE
 mongoose
@@ -32,6 +33,5 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/picture", picture);
-
 app.use("/user", register);
 app.use("/login", login);
