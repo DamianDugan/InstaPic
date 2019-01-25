@@ -11,13 +11,15 @@ import { UserComponent } from "./user/user.component";
 import { SignUpComponent } from "./user/sign-up/sign-up.component";
 //Routes
 import { appRoutes } from "./routes";
+import { LoginComponent } from './user/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     SignUpComponent,
-    PictureCreateComponent
+    PictureCreateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
