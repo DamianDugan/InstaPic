@@ -1,0 +1,30 @@
+<div class="text-center ">
+  <h1>Post a Picture <i class="fas fa-images fa-1x"></i></h1>
+
+  <div class="form-group m-4 container mx-auto">
+    <input
+      type="file"
+      class="form-control-file"
+      id="imagePost"
+      type="file"
+      accept="image/png, image/jpeg, image/gif"
+    />
+    <br />
+    <select id="AlbumId" class="form-control">
+      <option selected>Choose your Album ...</option>
+      <option>...</option>
+    </select>
+    <br />
+    <textarea class="form-control" [(ngModel)]="enteredValue"></textarea> <br />
+    <input type="text" class="form-control" placeholder="Localisation" /> <br />
+    <input type="text" class="form-control" placeholder="Camera" /><br />
+    <button
+      (click)="onAddPicture()"
+      type="submit"
+      value="Post Picture"
+      class="btn btn-danger"
+    >
+      Post my picture
+    </button>
+  </div>
+</div>
