@@ -1,13 +1,13 @@
 <div class="row m-4">
-  <div class="card mb-4 mt4 col-lg-3" *ngFor="let picture of pictures">
+  <div class="card  col-lg-3" *ngFor="let picture of pictures">
     <img
       src="{{ picture.image }}"
-      class="mx-auto"
+      class="mx-auto mt-4"
       alt="images"
       style="width: 80%"
     />
     <hr />
-    <div class="card-body">
+    <div class="card-body text-center">
       <p>Taken with a {{ picture.camera }}</p>
       <p class="card-text">{{ picture.description }}</p>
     </div>
