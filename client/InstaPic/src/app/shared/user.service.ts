@@ -9,10 +9,14 @@ import { User } from "./user.model";
 })
 export class UserService {
   selectedUser: User = {
+    id: 0,
     username: "",
     email: "",
     password: "",
-    confirm_password: ""
+    confirm_password: "",
+    picture: "",
+    followers: 0,
+    following: 0
   };
   constructor(private http: HttpClient) {}
 
