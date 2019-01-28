@@ -21,6 +21,7 @@ exports.createNewUser = function(req, res) {
         });
         user.save(function(err) {
           if (err) {
+            console.log(err);
             return res.send({ message: "username or email already exist" });
           } else {
             var token = jwt.sign({ id: user._id }, config.secret, {
@@ -32,14 +33,4 @@ exports.createNewUser = function(req, res) {
       }
     });
   } else res.send("Password ans confirm password must be different...");
-};
-
-exports.getAllUsers = function(req, res) {
-  User.find({}, function(err, users) {
-    var userMap = {};
-    users.forEach(function(user) {
-      userMap[user._id] = user;
-    });
-    res.json(userMap);
-  });
 };
