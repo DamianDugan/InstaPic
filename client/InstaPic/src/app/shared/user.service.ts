@@ -14,6 +14,11 @@ export class UserService {
     password: '',
     confirm_password: ''
   };
+
+  // selectedPicture: Picture= {
+  //   id:
+  // };
+
   constructor(private http: HttpClient) {}
 
   postUser(user: User) {

@@ -12,6 +12,7 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './user/profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { PictureShowComponent } from './picture-components/picture-show/picture-show.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     SignUpComponent,
     PictureCreateComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    PictureShowComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
