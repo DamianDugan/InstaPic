@@ -3,9 +3,6 @@ const router = express.Router();
 
 const registerController = require("../controllers/registerController");
 
-router.get("/test", registerController.test);
-
-router.post("/register", registerController.createNewUser);
-router.get("/", registerController.getAllUsers);
+router.post("/", registerController.createNewUser);
 
 module.exports = router;
