@@ -9,7 +9,7 @@ import { User } from "./user.model";
 })
 export class UserService {
   selectedUser: User = {
-    id: 0,
+    id: "",
     username: "",
     email: "",
     password: "",
@@ -22,5 +22,9 @@ export class UserService {
 
   postUser(user: User) {
     return this.http.post(environment.apiBaseUrl + "/signup/", user);
+  }
+
+  showAll() {
+    return this.http.get(environment.apiBaseUrl + "/user/");
   }
 }
