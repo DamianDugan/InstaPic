@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: "users",
     component: GetAllComponent
+  },
+  {
+    path: "user/update/${user._id}",
+    component: GetAllComponent
   }
 ];
 

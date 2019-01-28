@@ -27,4 +27,8 @@ export class UserService {
   showAll() {
     return this.http.get(environment.apiBaseUrl + "/user/");
   }
+
+  update(user: User) {
+    return this.http.put(environment.apiBaseUrl + "/user/:id", user);
+  }
 }
