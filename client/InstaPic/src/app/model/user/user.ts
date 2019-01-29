@@ -1,10 +1,9 @@
 export class User {
-  id: string;
+  id: number;
+  picture: string;
   username: string;
   email: string;
   password: string;
-  confirm_password: string;
   followers: number;
   following: number;
-  picture: string;
 }
