@@ -9,9 +9,9 @@
     </thead>
     <tbody>
       <tr>
-        <td>Ma photo</td>
-        <td>BevLaDev</td>
-        <td>bev@dev.com</td>
+        <td>{{ user.picture }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
       </tr>
     </tbody>
   </table>
@@ -19,6 +19,6 @@
   <br />
 
   <textarea class="form-control" name="description" id="description" cols="5">
-Photographe professionnelle depuis ma plus tendre enfance</textarea
+      {{ user.description }}</textarea
   >
 </div>
