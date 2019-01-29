@@ -1,0 +1,22 @@
+<h2 class="text-center">BEAUTIFUL USERS</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Followers</th>
+      <th scope="col">Following</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user._id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.followers }}</td>
+      <td>{{ user.following }}</td>
+    </tr>
+  </tbody>
+</table>

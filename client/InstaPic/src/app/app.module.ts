@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './user/profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { PictureShowComponent } from './picture-components/picture-show/picture-show.component';
+import { GetAllComponent } from './user/get-all/get-all.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PictureShowComponent } from './picture-components/picture-show/picture-
     PictureCreateComponent,
     ProfileComponent,
     HomeComponent,
-    PictureShowComponent
+    PictureShowComponent,
+    GetAllComponent,
+    UpdateUserComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],

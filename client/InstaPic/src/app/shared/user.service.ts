@@ -9,10 +9,14 @@ import { User } from './user.model';
 })
 export class UserService {
   selectedUser: User = {
+    id: '',
     username: '',
     email: '',
     password: '',
-    confirm_password: ''
+    confirm_password: '',
+    picture: '',
+    followers: 0,
+    following: 0
   };
 
   // selectedPicture: Picture= {
@@ -23,5 +27,13 @@ export class UserService {
 
   postUser(user: User) {
     return this.http.post(environment.apiBaseUrl + '/signup/', user);
+  }
+
+  showAll() {
+    return this.http.get(environment.apiBaseUrl + '/user/');
+  }
+
+  update(user: User) {
+    return this.http.put(environment.apiBaseUrl + '/user/:id', user);
   }
 }
