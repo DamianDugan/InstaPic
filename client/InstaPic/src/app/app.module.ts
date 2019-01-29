@@ -14,8 +14,8 @@ import { ProfileComponent } from "./user/profile/profile.component";
 import { GetAllComponent } from "./user/get-all/get-all.component";
 import { HomeComponent } from "./home/home.component";
 import { UpdateUserComponent } from './user/update-user/update-user.component';
-//Routes
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { PictureShowComponent } from './picture-components/picture-show/picture-show.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
     GetAllComponent,
     HomeComponent,
     UpdateUserComponent,
-    SignInComponent
+    SignInComponent,
+    PictureShowComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],

@@ -6,6 +6,8 @@ import { PictureCreateComponent } from "./picture-components/picture-create/pict
 import { GetAllComponent } from "./user/get-all/get-all.component";
 import { SignInComponent } from "./user/sign-in/sign-in.component"
 import { NgModule } from "@angular/core";
+import { PictureShowComponent } from './picture-components/picture-show/picture-show.component';
+
 
 const routes: Routes = [
   {
@@ -33,7 +35,13 @@ const routes: Routes = [
   {
     path: "signin",
     component: SignInComponent
-  }
+  },
+  {
+    path: 'home',
+    component: PictureShowComponent
+  },
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

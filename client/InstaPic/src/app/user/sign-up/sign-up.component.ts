@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 
-import { UserService } from "../../shared/user.service";
-import { NgForm } from "@angular/forms";
-import { User } from "src/app/shared/user.model";
+import { UserService } from '../../shared/user.service';
+import { NgForm } from '@angular/forms';
+import { User } from 'src/app/shared/user.model';
 
 @Component({
   selector: "app-sign-up",
@@ -29,7 +29,7 @@ export class SignUpComponent implements OnInit {
       },
       err => {
         if (err) {
-          this.serverErrorMessages = err + "<br/>";
+          this.serverErrorMessages = err + '<br/>';
         } else {
           this.serverErrorMessages =
             "Something went wrong. Please contact admin";
@@ -39,10 +39,10 @@ export class SignUpComponent implements OnInit {
   }
 
   resetForm(form: NgForm) {
-    this.userService.selectedUser.username = "";
-    this.userService.selectedUser.email = "";
-    this.userService.selectedUser.password = "";
-    this.userService.selectedUser.confirm_password = "";
+    this.userService.selectedUser.username = '';
+    this.userService.selectedUser.email = '';
+    this.userService.selectedUser.password = '';
+    this.userService.selectedUser.confirm_password = '';
 
     // = {
     //   username: "",

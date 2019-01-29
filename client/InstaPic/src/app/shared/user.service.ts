@@ -1,25 +1,28 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { environment } from "../../environments/environment";
-import { User } from "./user.model";
+import { environment } from '../../environments/environment';
+import { User } from './user.model';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class UserService {
   selectedUser: User = {
-    id: "",
-    username: "",
-    email: "",
-    password: "",
-    confirm_password: "",
-    picture: "",
+    id: '',
+    username: '',
+    email: '',
+    password: '',
+    confirm_password: '',
+    picture: '',
     followers: 0,
     following: 0
   };
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
+  // selectedPicture: Picture= {
+  //   id:
+  // };
 
   constructor(private http: HttpClient) {}
 

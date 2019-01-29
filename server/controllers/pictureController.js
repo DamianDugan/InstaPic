@@ -7,8 +7,10 @@ exports.test = function(req, res) {
 
 //Post a new picture
 exports.pictureCreate = function(req, res) {
+  console.log(req.body);
   let picture = new Picture({
-    user_id: req.body.user_id,
+    // userId a changer apres lorsqu'on pourra récuperer l'id via token
+    user_id: req.body.userId,
     image: req.body.image,
     description: req.body.description,
     album_id: req.body.album_id,
@@ -17,8 +19,10 @@ exports.pictureCreate = function(req, res) {
   });
   picture.save(function(err) {
     if (err) {
+      console.log(err);
       return res.send(err);
     }
+    console.log('success');
     res.send('Picture Created successfully');
   });
 };
