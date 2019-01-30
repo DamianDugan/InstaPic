@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>Sign In</h1>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="success" class="alert alert-success" role="alert">
+      Welcome to InstaPic :)
+    </div>
+
+    <label>
+      Username: <input type="text" formControlName="username" />
+      <div
+        *ngIf="submitted && registerForm.controls.username.errors"
+        class="error"
+      >
+        <div *ngIf="registerForm.controls.username.errors.required">
+          Username is required Bro
+        </div>
+      </div>
+    </label>
+
+    <label>
+      Email: <input type="text" formControlName="email" />
+      <div
+        *ngIf="submitted && registerForm.controls.email.errors"
+        class="error"
+      >
+        <div *ngIf="registerForm.controls.email.errors.required">
+          Email is required Bro
+        </div>
+      </div>
+    </label>
+
+    <label>
+      Password: <input type="text" formControlName="password" />
+      <div
+        *ngIf="submitted && registerForm.controls.password.errors"
+        class="error"
+      >
+        <div *ngIf="registerForm.controls.password.errors.required">
+          Password is required Bro
+        </div>
+      </div>
+    </label>
+
+    <label>
+      Confirm Password: <input type="text" formControlName="confirm_password" />
+      <div
+        *ngIf="submitted && registerForm.controls.confirm_password.errors"
+        class="error"
+      >
+        <div *ngIf="registerForm.controls.confirm_password.errors.required">
+          Confirm your password Bro
+        </div>
+      </div>
+    </label>
+
+    <input type="submit" value="Register" class="cta" />
+  </form>
+</div>
