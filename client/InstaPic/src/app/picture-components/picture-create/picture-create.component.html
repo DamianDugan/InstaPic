@@ -1,0 +1,87 @@
+<div class="text-center ">
+  <h1>Post a Picture <i class="fas fa-images fa-1x"></i></h1>
+
+  <form
+    #postPictureForm="ngForm"
+    (ngSubmit)="postPictureForm.valid && onSubmit(postPictureForm)"
+  >
+    <div class="form-group m-4 container mx-auto">
+      <input
+        type="file"
+        #image="ngModel"
+        name="image"
+        [(ngModel)]="pictureService.selectedPicture.image"
+        class="form-control-file"
+        id="imagePost"
+        type="file"
+        accept="image/png, image/jpeg, image/gif"
+      />
+      <div *ngIf="postPictureForm.submitted && !image.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+
+      <br />
+      <select
+        id="AlbumId"
+        class="form-control"
+        name="albumId"
+        #albumId="ngModel"
+        [(ngModel)]="pictureService.selectedPicture.albumId"
+      >
+        <option selected>Choose your Album ...</option>
+        <option>...</option>
+      </select>
+      <div *ngIf="postPictureForm.submitted && !albumId.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+
+      <br />
+      <textarea
+        class="form-control"
+        name="description"
+        #description="ngModel"
+        [(ngModel)]="pictureService.selectedPicture.description"
+      ></textarea>
+      <br />
+      <input
+        type="text"
+        class="form-control"
+        name="localisation"
+        placeholder="Localisation"
+        #localisation="ngModel"
+        [(ngModel)]="pictureService.selectedPicture.localisation"
+      />
+      <div *ngIf="postPictureForm.submitted && !localisation.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+
+      <br />
+      <input
+        type="text"
+        class="form-control"
+        name="camera"
+        placeholder="Camera"
+        #camera="ngModel"
+        [(ngModel)]="pictureService.selectedPicture.camera"
+      />
+      <div *ngIf="postPictureForm.submitted && !camera.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+
+      <input
+        type="hidden"
+        #id="ngModel"
+        [(ngModel)]="pictureService.selectedPicture.userId"
+        name="userId"
+        value="test"
+      />
+      <br />
+      <input type="submit" value="Sign Up" class="btn btn-danger " />
+    </div>
+  </form>
+  <!-- Success message -->
+  <div class="success" *ngIf="showSuccessMessage">Saved successfully</div>
+
+  <!-- Error message -->
+  <div class="alert" *ngIf="serverErrorMessages">{{ serverErrorMessages }}</div>
+</div>
