@@ -13,11 +13,14 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.data.getUsers().subscribe(data => {
+      console.log("hello");
       this.users = data;
     });
   }
   deleteUser(id) {
-    this.data.delUser(id).subscribe();
+    this.data.delUser(id).subscribe(res => {
+      this.ngOnInit();
+    });
   }
 
   userAdmin(userState) {

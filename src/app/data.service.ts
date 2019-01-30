@@ -45,6 +45,7 @@ export class DataService {
   }
 
   getToken() {
+    console.log("in getToken");
     return localStorage.getItem("token");
   }
 
