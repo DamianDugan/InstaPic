@@ -1,14 +1,15 @@
 import { Routes, RouterModule } from "@angular/router";
 import { UserComponent } from "./user/user.component";
-import { SignUpComponent } from "./user/sign-up/sign-up.component";
+import { SignUpComponent } from "./auth/sign-up/sign-up.component";
 import { ProfileComponent } from "./user/profile/profile.component";
 import { PictureCreateComponent } from "./picture-components/picture-create/picture-create.component";
 import { HomeComponent } from "./home/home.component";
 import { PictureShowComponent } from "./picture-components/picture-show/picture-show.component";
 import { UpdateUserComponent } from "./user/update-user/update-user.component";
 import { NgModule } from "@angular/core";
-import { SignInComponent } from "./user/sign-in/sign-in.component";
+import { SignInComponent } from "./auth/sign-in/sign-in.component";
 import { AdminUserComponent } from "./admin/admin-user/admin-user.component";
+import { LogoutComponent } from "./auth/logout/logout.component";
 
 const routes: Routes = [
   {
@@ -46,11 +47,10 @@ const routes: Routes = [
     path: "admin/users",
     component: AdminUserComponent
   },
-
-  // {
-  //   path: "user/update/:id",
-  //   component: GetAllComponent
-  // },
+  {
+    path: "logout",
+    component: LogoutComponent
+  },
   // otherwise redirect to home
 
   { path: "**", redirectTo: "" }

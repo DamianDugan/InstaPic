@@ -20,7 +20,6 @@ export class PictureCreateComponent implements OnInit {
     this.pictureService.postPicture(form.value).subscribe(
       res => {
         // console.log(form.value);
-        this.router.navigate(['/profile']);
         this.showSuccessMessage = true;
       },
       err => {
@@ -32,5 +31,6 @@ export class PictureCreateComponent implements OnInit {
         }
       }
     );
+    this.router.navigate(['/home']);
   }
 }

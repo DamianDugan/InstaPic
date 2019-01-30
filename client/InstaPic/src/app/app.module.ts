@@ -7,15 +7,17 @@ import { HttpClientModule } from "@angular/common/http";
 import { PictureCreateComponent } from "./picture-components/picture-create/picture-create.component";
 import { AppComponent } from "./app.component";
 import { UserComponent } from "./user/user.component";
-import { SignUpComponent } from "./user/sign-up/sign-up.component";
+import { SignUpComponent } from "./auth/sign-up/sign-up.component";
 // Routes
 import { AppRoutingModule } from "./app-routing.module";
 import { ProfileComponent } from "./user/profile/profile.component";
 import { HomeComponent } from "./home/home.component";
-import { UpdateUserComponent } from "./user/update-user/update-user.component";
-import { SignInComponent } from "./user/sign-in/sign-in.component";
-import { PictureShowComponent } from "./picture-components/picture-show/picture-show.component";
 import { AdminUserComponent } from "./admin/admin-user/admin-user.component";
+import { UpdateUserComponent } from "./user/update-user/update-user.component";
+import { SignInComponent } from "./auth/sign-in/sign-in.component";
+import { PictureShowComponent } from "./picture-components/picture-show/picture-show.component";
+import { NavbarComponent } from "./navbar/navbar.component";
+import { LogoutComponent } from './auth/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { AdminUserComponent } from "./admin/admin-user/admin-user.component";
     UpdateUserComponent,
     SignInComponent,
     PictureShowComponent,
-    AdminUserComponent
+    AdminUserComponent,
+    NavbarComponent,
+    LogoutComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],

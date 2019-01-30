@@ -1,8 +1,8 @@
-<div class="container">
-  <form
-    #signUpForm="ngForm"
-    (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)"
-  >
+<form
+  #signUpForm="ngForm"
+  (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)"
+>
+  <div class="form-group m-4 container mx-auto">
     <input
       type="text"
       #username="ngModel"
@@ -55,8 +55,10 @@
     <div class="text-center">
       <input type="submit" value="Sign Up" class="btn btn-success " />
     </div>
-  </form>
+  </div>
+</form>
 
+<div class="form-group m-4 container mx-auto">
   <!-- Success message -->
   <div class="success" *ngIf="showSuccessMessage">Saved successfully</div>
 

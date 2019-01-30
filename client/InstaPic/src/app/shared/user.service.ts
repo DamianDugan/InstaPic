@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 import { environment } from "../../environments/environment";
 import { User } from "./user.model";
@@ -22,11 +23,8 @@ export class UserService {
   };
 
   noAuthHeader = { headers: new HttpHeaders({ NoAuth: "True" }) };
-  // selectedPicture: Picture= {
-  //   id:
-  // };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   // REGISTER
   postUser(user: User) {
@@ -72,6 +70,7 @@ export class UserService {
 
   deleteToken() {
     localStorage.removeItem("token");
+    this.router.navigate(["/signin"]);
   }
 
   getUserPayload() {
@@ -86,5 +85,9 @@ export class UserService {
     var userPayload = this.getUserPayload();
     if (userPayload) return userPayload.exp > Date.now() / 1000;
     else return false;
+  }
+
+  toHome() {
+    this.router.navigate(["/"]);
   }
 }
