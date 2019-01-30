@@ -15,8 +15,8 @@ export class ProfileComponent implements OnInit {
     this.showAllUsers();
   }
 
-  showProfile(id: string) {
-    this.userService.showUser(id).subscribe(() => {
+  showProfile() {
+    this.userService.getUserPayload().subscribe(() => {
       this.showAllUsers();
     });
   }

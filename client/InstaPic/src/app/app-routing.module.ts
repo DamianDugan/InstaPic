@@ -5,9 +5,10 @@ import { ProfileComponent } from "./user/profile/profile.component";
 import { PictureCreateComponent } from "./picture-components/picture-create/picture-create.component";
 import { PictureShowComponent } from "./picture-components/picture-show/picture-show.component";
 import { GetAllComponent } from "./user/get-all/get-all.component";
+import { UpdateUserComponent } from "./user/update-user/update-user.component";
 
 import { NgModule } from "@angular/core";
-
+import { SignInComponent } from "./user/sign-in/sign-in.component";
 const routes: Routes = [
   {
     path: "signup",
@@ -20,16 +21,24 @@ const routes: Routes = [
     component: PictureCreateComponent
   },
   {
-    path: "user/:id",
+    path: "profile",
     component: ProfileComponent
-  },
-  {
-    path: "home",
-    component: PictureShowComponent
   },
   {
     path: "users",
     component: GetAllComponent
+  },
+  {
+    path: "user/update/:id",
+    component: UpdateUserComponent
+  },
+  {
+    path: "signin",
+    component: SignInComponent
+  },
+  {
+    path: "home",
+    component: PictureShowComponent
   },
   // {
   //   path: "user/update/:id",
