@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { tap } from "rxjs/operators";
+import { Router } from "@angular/router";
+import { Environnement } from "../";
 
 @Injectable({
   providedIn: "root"
@@ -8,7 +9,7 @@ import { tap } from "rxjs/operators";
 export class DataService {
   noAuthHeader = { headers: new HttpHeaders({ NoAuth: "True" }) };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   getPictures() {
     return this.http.get("http://localhost:8000/picture");
@@ -28,7 +29,6 @@ export class DataService {
   }
 
   updateUser(user) {
-    console.log(user);
     user = JSON.parse(user);
     return this.http.put("http://localhost:8000/user/" + user._id, user);
   }
@@ -36,20 +36,27 @@ export class DataService {
   loginUser(user) {
     user = JSON.parse(user);
     return this.http
-      .post("http://localhost:8000/login/", user, this.noAuthHeader)
+      .post("http://localhost:8000/login/", user, { responseType: "text" })
       .subscribe(res => {
-        console.log(res);
-        this.setToken(res["token"]);
-        console.log(this.getToken());
+        this.setToken(res);
+        this.router.navigate(["/"]);
       });
   }
 
   getToken() {
-    console.log("in getToken");
     return localStorage.getItem("token");
   }
 
   setToken(token: string) {
     return localStorage.setItem("token", token);
+  }
+
+  deleteToken() {
+    localStorage.removeItem("token");
+    this.router.navigate(["/login"]);
+  }
+
+  toHome() {
+    this.router.navigate(["/"]);
   }
 }

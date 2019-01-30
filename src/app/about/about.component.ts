@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../data.service";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Component({
   selector: "app-about",
@@ -8,18 +9,31 @@ import { DataService } from "../data.service";
 })
 export class AboutComponent implements OnInit {
   users: Object;
+  helper = new JwtHelperService();
+
+  getAllUsers() {
+    this.data.getUsers().subscribe(data => {
+      this.users = data;
+    });
+  }
 
   constructor(private data: DataService) {}
 
   ngOnInit() {
-    this.data.getUsers().subscribe(data => {
-      console.log("hello");
-      this.users = data;
-    });
+    const token = this.data.getToken();
+    const decodedToken = this.helper.decodeToken(token);
+    if (decodedToken) {
+      const userAdmin = decodedToken.isAdmin;
+      if (userAdmin) return this.getAllUsers();
+      return this.data.toHome();
+    } else {
+      this.data.toHome();
+    }
   }
+
   deleteUser(id) {
     this.data.delUser(id).subscribe(res => {
-      this.ngOnInit();
+      this.getAllUsers();
     });
   }
 

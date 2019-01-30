@@ -4,12 +4,14 @@ import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
 import { LoginComponent } from "./login/login.component";
+import { LogoutComponent } from "./logout/logout.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "users", component: AboutComponent },
   { path: "contact", component: ContactComponent },
-  { path: "login", component: LoginComponent }
+  { path: "login", component: LoginComponent },
+  { path: "logout", component: LogoutComponent }
 ];
 
 @NgModule({
