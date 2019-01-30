@@ -9,6 +9,9 @@ import { GetAllComponent } from "./user/get-all/get-all.component";
 import { UpdateUserComponent } from "./user/update-user/update-user.component";
 import { NgModule } from "@angular/core";
 import { SignInComponent } from "./user/sign-in/sign-in.component";
+import { AboutComponent } from "./about/about.component";
+import { ContactComponent } from "./contact/contact.component";
+import { LoginComponent } from "./login/login.component";
 const routes: Routes = [
   {
     path: "signup",
@@ -45,6 +48,21 @@ const routes: Routes = [
     path: "signin",
     component: SignInComponent
   },
+  {
+    path: "users",
+    component: AboutComponent
+  },
+
+  {
+    path: "contact",
+    component: ContactComponent
+  },
+
+  {
+    path: "login",
+    component: LoginComponent
+  },
+
   // {
   //   path: "user/update/:id",
   //   component: GetAllComponent

@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.pictureService.showPictures().subscribe(
       res => {
-        this.pictures = res;
+        // this.pictures = res;
         this.showSuccessMessage = true;
       },
       err => {

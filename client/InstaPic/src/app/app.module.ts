@@ -13,9 +13,12 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ProfileComponent } from "./user/profile/profile.component";
 import { GetAllComponent } from "./user/get-all/get-all.component";
 import { HomeComponent } from "./home/home.component";
-import { UpdateUserComponent } from './user/update-user/update-user.component';
-import { SignInComponent } from './user/sign-in/sign-in.component';
-import { PictureShowComponent } from './picture-components/picture-show/picture-show.component';
+import { UpdateUserComponent } from "./user/update-user/update-user.component";
+import { SignInComponent } from "./user/sign-in/sign-in.component";
+import { PictureShowComponent } from "./picture-components/picture-show/picture-show.component";
+import { AboutComponent } from "./about/about.component";
+import { ContactComponent } from "./contact/contact.component";
+import { LoginComponent } from "./login/login.component";
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { PictureShowComponent } from './picture-components/picture-show/picture-
     UpdateUserComponent,
     SignInComponent,
     PictureShowComponent,
+    AboutComponent,
+    ContactComponent,
+    LoginComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
