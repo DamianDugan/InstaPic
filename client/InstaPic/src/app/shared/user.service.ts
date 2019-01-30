@@ -39,11 +39,16 @@ export class UserService {
   }
 
   showUser(id: String) {
-    return this.http.get(environment.apiBaseUrl + `/user/:id` + id);
+    return this.http.get(environment.apiBaseUrl + `/user/` + id);
   }
 
-  update(user: User) {
-    return this.http.put(environment.apiBaseUrl + `/user/:id`, user);
+  delUser(id: String) {
+    return this.http.delete(environment.apiBaseUrl + "/user/" + id);
+  }
+
+  updateUser(user) {
+    const newUser = JSON.parse(user);
+    return this.http.put(environment.apiBaseUrl + "/user/" + user.id, newUser);
   }
 
   // LOGIN
