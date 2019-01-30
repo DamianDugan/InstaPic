@@ -1,42 +1,51 @@
-import { Routes, RouterModule } from '@angular/router';
-import { UserComponent } from './user/user.component';
-import { SignUpComponent } from './user/sign-up/sign-up.component';
-import { ProfileComponent } from './user/profile/profile.component';
-import { PictureCreateComponent } from './picture-components/picture-create/picture-create.component';
-import { PictureShowComponent } from './picture-components/picture-show/picture-show.component';
-import { GetAllComponent } from './user/get-all/get-all.component';
+import { Routes, RouterModule } from "@angular/router";
+import { UserComponent } from "./user/user.component";
+import { SignUpComponent } from "./user/sign-up/sign-up.component";
+import { ProfileComponent } from "./user/profile/profile.component";
+import { PictureCreateComponent } from "./picture-components/picture-create/picture-create.component";
+import { PictureShowComponent } from "./picture-components/picture-show/picture-show.component";
+import { GetAllComponent } from "./user/get-all/get-all.component";
+import { UpdateUserComponent } from "./user/update-user/update-user.component";
 
-import { NgModule } from '@angular/core';
-
+import { NgModule } from "@angular/core";
+import { SignInComponent } from "./user/sign-in/sign-in.component";
 const routes: Routes = [
   {
-    path: 'signup',
+    path: "signup",
     component: UserComponent,
-    children: [{ path: '', component: SignUpComponent }]
+    children: [{ path: "", component: SignUpComponent }]
   },
 
   {
-    path: 'post-picture',
+    path: "post-picture",
     component: PictureCreateComponent
   },
   {
-    path: 'profile',
+    path: "profile",
     component: ProfileComponent
   },
   {
-    path: 'home',
+    path: "users",
+    component: GetAllComponent
+  },
+  {
+    path: "user/update/:id",
+    component: UpdateUserComponent
+  },
+  {
+    path: "signin",
+    component: SignInComponent
+  },
+  {
+    path: "home",
     component: PictureShowComponent
   },
-  {
-    path: 'users',
-    component: GetAllComponent
-  },
-  {
-    path: 'user/update/${user._id}',
-    component: GetAllComponent
-  },
+  // {
+  //   path: "user/update/:id",
+  //   component: GetAllComponent
+  // },
   // otherwise redirect to home
-  { path: '**', redirectTo: '' }
+  { path: "**", redirectTo: "" }
 ];
 
 @NgModule({

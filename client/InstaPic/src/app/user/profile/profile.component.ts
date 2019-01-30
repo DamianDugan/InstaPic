@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { UserService } from "../../shared/user.service";
+import { User } from "src/app/shared/user.model";
 
 @Component({
   selector: "app-profile",
@@ -6,9 +8,22 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./profile.component.css"]
 })
 export class ProfileComponent implements OnInit {
-  profile: any;
+  users: User[] = [];
+  constructor(private userService: UserService) {}
 
-  constructor() {}
+  ngOnInit() {
+    this.showAllUsers();
+  }
 
-  ngOnInit() {}
+  showProfile() {
+    this.userService.getUserPayload().subscribe(() => {
+      this.showAllUsers();
+    });
+  }
+
+  private showAllUsers() {
+    this.userService.showAll().subscribe(users => {
+      this.users = users as User[];
+    });
+  }
 }

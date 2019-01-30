@@ -30,17 +30,19 @@ exports.userLogin = function(req, res) {
         let token = jwt.sign(usr_info, process.env.SECRET_KEY, {
           expiresIn: "1h"
         });
-        res.send(token);
-        console.log("tt bon frr");
+        res.send({ token: token });
+        console.log("octogone sans règles");
+       // res.json({ token: token });
+        console.log(token);
       } else {
-        res.json({ error: "User does not exist" });
+        res.status(500).json({ error: "User does not exist" });
       }
     } else {
-        res.json({ error: "User does not exist" });
+        res.status(500).json({ error: "User does not exist" });
       }
     })
     .catch(err => {
-        res.send("error: " + err);
+        res.status(500).send("error: " + err);
   });
 };
 
