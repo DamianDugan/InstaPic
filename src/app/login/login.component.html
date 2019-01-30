@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="success" class="alert alert-success" role="alert">
+      Your Form is Valid !
+    </div>
+    <label>
+      Email: <input type="text" formControlName="email" />
+      <div *ngIf="submitted && loginForm.controls.email.errors" class="error">
+        <div *ngIf="loginForm.controls.email.errors.required">
+          Email is required Bro
+        </div>
+      </div>
+    </label>
+
+    <label>
+      Password: <input type="text" formControlName="password" />
+      <div
+        *ngIf="submitted && loginForm.controls.password.errors"
+        class="error"
+      >
+        <div *ngIf="loginForm.controls.password.errors.required">
+          Password is required Bro
+        </div>
+      </div>
+    </label>
+    <input type="submit" value="Login" class="cta" />
+  </form>
+</div>

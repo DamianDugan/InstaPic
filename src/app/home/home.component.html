@@ -1,0 +1,18 @@
+<div class="container">
+  <ul *ngIf="pictures">
+    <h1>Home</h1>
+
+    <li *ngFor="let picture of pictures; let i = index">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="picture.image" alt="Card image cap" />
+        <div class="card-body">
+          <p class="card-title">{{ picture.createdAt | date: "d/M/yyy" }}</p>
+          <p class="card-title">at {{ picture.localisation }}</p>
+          <h6 class="card-title">with {{ picture.camera }}</h6>
+          <p class="card-text">{{ picture.description }}</p>
+          <a [href]="picture._id" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
