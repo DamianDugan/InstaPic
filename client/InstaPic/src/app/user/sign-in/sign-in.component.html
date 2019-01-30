@@ -1,18 +1,41 @@
-
-<form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
-  <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
-    [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
-  <div *ngIf="signInForm.submitted && email.errors?.pattern">
-    <label class="validation-message">Invalid email address.</label>
+<h2 class="text-center">Please sign in</h2>
+<form
+  #signInForm="ngForm"
+  (ngSubmit)="signInForm.valid && onSubmit(signInForm)"
+>
+  <div class="form-group m-4 container mx-auto">
+    <input
+      type="text"
+      name="email"
+      #email="ngModel"
+      [(ngModel)]="model.email"
+      placeholder="Email"
+      [pattern]="emailRegex"
+      required
+      class="form-control mb-4"
+      [ngClass]="{ 'invalid-textbox': signInForm.submitted && !email.valid }"
+    />
+    <div *ngIf="signInForm.submitted && email.errors?.pattern">
+      <label class="validation-message">Invalid email address.</label>
+    </div>
+    <input
+      type="password"
+      name="password"
+      #password="ngModel"
+      [(ngModel)]="model.password"
+      placeholder="Password"
+      required
+      class="form-control mb-4"
+      minlength="4"
+      [ngClass]="{ 'invalid-textbox': signInForm.submitted && !password.valid }"
+    />
+    <div *ngIf="signInForm.submitted && password.errors?.minlength">
+      <label class="validation-message">Minimum 4 characters.</label>
+    </div>
+    <div class="text-center">
+      <input type="submit" class="btn btn-success mb-4" value="Sign In" />
+    </div>
   </div>
-  <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4"
-    [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
-  <div *ngIf="signInForm.submitted && password.errors?.minlength">
-    <label class="validation-message">Minimum 4 characters.</label>
-  </div>
-  <input type="submit" value="Sign In">
 </form>
 <!-- Error message -->
-<div class="alert" *ngIf="serverErrorMessages">
-  {{serverErrorMessages}}
-</div>
+<div class="alert" *ngIf="serverErrorMessages">{{ serverErrorMessages }}</div>

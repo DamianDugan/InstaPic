@@ -16,6 +16,7 @@ import { HomeComponent } from "./home/home.component";
 import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { PictureShowComponent } from './picture-components/picture-show/picture-show.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { PictureShowComponent } from './picture-components/picture-show/picture-
     UpdateUserComponent,
     SignInComponent,
     PictureShowComponent,
+    NavbarComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
