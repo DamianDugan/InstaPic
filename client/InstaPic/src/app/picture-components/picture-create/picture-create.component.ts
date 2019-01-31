@@ -1,8 +1,9 @@
+declare var require: any;
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { PictureService } from "./picture.service";
-let EXIF = require("exif-js");
+const exif = require("exif-js");
 
 @Component({
   selector: "app-picture-create",
@@ -18,14 +19,14 @@ export class PictureCreateComponent implements OnInit {
   ngOnInit() {}
 
   getExif(image) {
-    EXIF.getData(image, function() {
-      let make = EXIF.getTag(this, "Make");
-      let model = EXIF.getTag(this, "Model");
+    exif.EXIF.getData(image, function() {
+      let make = exif.EXIF.getTag(this, "Make");
+      let model = exif.EXIF.getTag(this, "Model");
       console.log(make, model);
     });
 
-    EXIF.getData(image, function() {
-      let allMetaData = EXIF.getAllTags(this);
+    exif.EXIF.getData(image, function() {
+      let allMetaData = exif.EXIF.getAllTags(this);
       console.log(allMetaData);
     });
   }

@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@auth0/angular-jwt": "^2.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.0.2",
     "angular-jwt": "^0.1.10",
     "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
