@@ -6,12 +6,6 @@ const cors = require('cors');
 const port = config.port;
 var app = express();
 
-// var multer = require('multer');
-// // set the directory for the uploads to the uploaded to
-// var DIR = './uploads/';
-// //define the type of upload multer would be doing and pass in its destination, in our case, its a single file with the name photo
-// var upload = multer({dest: DIR}).single('photo');
-
 const picture = require('../routes/pictureRoute');
 const register = require('../routes/registerRoute');
 const login = require('../routes/loginRoute');
