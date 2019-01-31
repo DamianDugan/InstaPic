@@ -17,9 +17,14 @@ export class HomeComponent implements OnInit {
     this.data.getPictures().subscribe(data => {
       this.pictures = data;
     });
+  }
 
-    const token = localStorage.getItem("token");
-    const decodedToken = this.helper.decodeToken(token);
-    console.log(decodedToken);
+  addToFav(id) {
+    let token = this.data.getToken();
+    let decoded = this.helper.decodeToken(token);
+
+    this.data.getOneUser(decoded._id).subscribe(res => {
+      this.data.
+    });
   }
 }

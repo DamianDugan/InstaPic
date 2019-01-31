@@ -31,7 +31,7 @@
     </label>
 
     <label>
-      Password: <input type="text" formControlName="password" />
+      Password: <input type="password" formControlName="password" />
       <div
         *ngIf="submitted && registerForm.controls.password.errors"
         class="error"
@@ -43,7 +43,8 @@
     </label>
 
     <label>
-      Confirm Password: <input type="text" formControlName="confirm_password" />
+      Confirm Password:
+      <input type="password" formControlName="confirm_password" />
       <div
         *ngIf="submitted && registerForm.controls.confirm_password.errors"
         class="error"

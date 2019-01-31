@@ -17,6 +17,10 @@ export class AboutComponent implements OnInit {
     });
   }
 
+  singleUser(id) {
+    return this.data.userGetOne(id);
+  }
+
   constructor(private data: DataService) {}
 
   ngOnInit() {
@@ -24,7 +28,9 @@ export class AboutComponent implements OnInit {
     const decodedToken = this.helper.decodeToken(token);
     if (decodedToken) {
       const userAdmin = decodedToken.isAdmin;
-      if (userAdmin) return this.getAllUsers();
+      if (userAdmin) {
+        return this.getAllUsers();
+      }
       return this.data.toHome();
     } else {
       this.data.toHome();

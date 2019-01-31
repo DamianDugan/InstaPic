@@ -8,7 +8,9 @@
         <div class="card-body">
           <p class="card-title">{{ picture.createdAt | date: "d/M/yyy" }}</p>
           <p class="card-title">at {{ picture.localisation }}</p>
-          <h6 class="card-title">with {{ picture.camera }}</h6>
+          <h6 class="card-title">with a {{ picture.camera }}</h6>
+          <a (click)="addToFav(picture._id)"><i class="fa fa-heart"></i> </a>
+
           <p class="card-text">{{ picture.description }}</p>
           <a [href]="picture._id" class="btn btn-primary">View More</a>
         </div>

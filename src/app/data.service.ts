@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Router } from "@angular/router";
-import { Environnement } from "../";
 
 @Injectable({
   providedIn: "root"
@@ -19,7 +18,15 @@ export class DataService {
     return this.http.get("http://localhost:8000/user");
   }
 
-  delUser(id) {
+  userGetOne(id) {
+    return this.router.navigate(["user", { id: id }]);
+  }
+
+  getOneUser(id) {
+    return this.http.get("http://localhost:8000/user/" + id);
+  }
+
+  delUser(id: string) {
     return this.http.delete("http://localhost:8000/user/" + id);
   }
 
@@ -34,9 +41,9 @@ export class DataService {
   }
 
   loginUser(user) {
-    user = JSON.parse(user);
+    var parseUser = JSON.parse(user);
     return this.http
-      .post("http://localhost:8000/login/", user, { responseType: "text" })
+      .post("http://localhost:8000/login/", parseUser, { responseType: "text" })
       .subscribe(res => {
         this.setToken(res);
         this.router.navigate(["/"]);

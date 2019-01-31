@@ -12,8 +12,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users; let i = index" class="text-center">
-        <td>{{ user.username }}</td>
+      <tr *ngFor="let user of users" class="text-center">
+        <td>
+          <a
+            class="btn btn-info btn-sm username"
+            (click)="singleUser(user._id)"
+            >{{ user.username }}</a
+          >
+        </td>
         <td>{{ user.email }}</td>
         <td>
           <a class="btn btn-info btn-sm" (click)="userAdmin(user)">{{

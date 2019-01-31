@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     let user = JSON.stringify(this.loginForm.value);
-    this.data.loginUser(user);
+    return this.data.loginUser(user);
   }
 
   ngOnInit() {}
