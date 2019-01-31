@@ -23,8 +23,6 @@
         #image="ngModel"
         name="image"
         [(ngModel)]="pictureService.selectedPicture.image"
-        ng2FileSelect
-        [uploader]="uploader"
         class="form-control-file"
         id="imagePost"
         type="file"
@@ -90,13 +88,7 @@
         value="test"
       />
       <br />
-      <input
-        type="submit"
-        value="Upload"
-        (click)="uploader.uploadAll()"
-        class="btn btn-danger "
-        [disabled]="!uploader.getNotUploadedItems().length"
-      />
+      <input type="submit" value="Upload" class="btn btn-danger " />
     </div>
   </form>
   <!-- Success message -->
