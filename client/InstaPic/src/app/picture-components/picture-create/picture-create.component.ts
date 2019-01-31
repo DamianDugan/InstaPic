@@ -18,18 +18,18 @@ export class PictureCreateComponent implements OnInit {
 
   ngOnInit() {}
 
-  getExif(image) {
-    exif.EXIF.getData(image, function() {
-      let make = exif.EXIF.getTag(this, "Make");
-      let model = exif.EXIF.getTag(this, "Model");
-      console.log(make, model);
-    });
+  // getExif(image) {
+  //   exif.EXIF.getData(image, function() {
+  //     let make = exif.EXIF.getTag(this, "Make");
+  //     let model = exif.EXIF.getTag(this, "Model");
+  //     console.log(make, model);
+  //   });
 
-    exif.EXIF.getData(image, function() {
-      let allMetaData = exif.EXIF.getAllTags(this);
-      console.log(allMetaData);
-    });
-  }
+  //   exif.EXIF.getData(image, function() {
+  //     let allMetaData = exif.EXIF.getAllTags(this);
+  //     console.log(allMetaData);
+  //   });
+  // }
 
   onSubmit(form: NgForm) {
     this.pictureService.postPicture(form.value).subscribe(
