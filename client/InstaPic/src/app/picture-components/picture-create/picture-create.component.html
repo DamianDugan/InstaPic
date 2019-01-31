@@ -1,6 +1,18 @@
 <div class="text-center ">
   <h2>Post a Picture <i class="fas fa-images fa-1x"></i></h2>
 
+  <!-- File input for the file-upload plugin, with special ng2-file-upload directive called ng2FileSelect -->
+  <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+  <!-- button to trigger the file upload when submitted -->
+  <button
+    type="button"
+    class="btn btn-success btn-s"
+    (click)="uploader.uploadAll()"
+    [disabled]="!uploader.getNotUploadedItems().length"
+  >
+    Upload image
+  </button>
+
   <form
     #postPictureForm="ngForm"
     (ngSubmit)="postPictureForm.valid && onSubmit(postPictureForm)"
@@ -11,6 +23,8 @@
         #image="ngModel"
         name="image"
         [(ngModel)]="pictureService.selectedPicture.image"
+        ng2FileSelect
+        [uploader]="uploader"
         class="form-control-file"
         id="imagePost"
         type="file"
@@ -76,7 +90,13 @@
         value="test"
       />
       <br />
-      <input type="submit" value="Sign Up" class="btn btn-danger " />
+      <input
+        type="submit"
+        value="Upload"
+        (click)="uploader.uploadAll()"
+        class="btn btn-danger "
+        [disabled]="!uploader.getNotUploadedItems().length"
+      />
     </div>
   </form>
   <!-- Success message -->
