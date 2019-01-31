@@ -14,6 +14,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { PictureService } from "./picture.service";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 // import the file uploader plugin
 import { FileUploader } from "ng2-file-upload/ng2-file-upload";
@@ -29,6 +30,7 @@ const URL = "http://localhost:8000/picture/upload";
 export class PictureCreateComponent implements OnInit {
   showSuccessMessage: boolean;
   serverErrorMessages: string;
+  helper = new JwtHelperService();
 
   // declare a property called fileuploader and assign it to an instance of a new fileUploader.
   // pass in the Url to be uploaded to, and pass the itemAlais, which would be the name of the //file input when sending the post request.
@@ -40,6 +42,13 @@ export class PictureCreateComponent implements OnInit {
   title = "app works!";
 
   constructor(private pictureService: PictureService, private router: Router) {}
+
+  isLoggued = function() {
+    const token = localStorage.getItem("token");
+    const decodedToken = this.helper.decodeToken(token);
+    console.log(decodedToken);
+    return decodedToken._id;
+  };
 
   ngOnInit() {
     // override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
@@ -55,6 +64,7 @@ export class PictureCreateComponent implements OnInit {
       headers: any
     ) => {
       console.log("ImageUpload:uploaded:", item, status, response);
+      this.isLoggued();
     };
   }
 

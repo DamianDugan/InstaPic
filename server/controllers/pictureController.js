@@ -7,11 +7,12 @@ exports.test = function(req, res) {
 
 //Post a new picture
 exports.pictureCreate = function(req, res) {
-  console.log(req.body);
+  console.log('toto');
+  console.log('yo');
   let picture = new Picture({
     // userId a changer apres lorsqu'on pourra récuperer l'id via token
-    user_id: req.body.userId,
-    image: req.body.image,
+    user_id: req.decodedToken._id,
+    image: req.file.path,
     description: req.body.description,
     album_id: req.body.album_id,
     camera: req.body.camera,

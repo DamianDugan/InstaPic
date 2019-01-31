@@ -35,7 +35,8 @@ router.post('/upload', function(req, res, next) {
     }
     // No error occured.
     path = req.file.path;
-    return res.send('Upload Completed for ' + path);
+    return pictureController.pictureCreate(req, res);
+    // return res.send('Upload Completed for ' + path);
   });
 });
 
