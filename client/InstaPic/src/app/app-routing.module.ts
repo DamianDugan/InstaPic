@@ -36,7 +36,7 @@ const routes: Routes = [
   },
 
   {
-    path: "user/update/:id",
+    path: "user/update",
     component: UpdateUserComponent
   },
   {
@@ -53,7 +53,7 @@ const routes: Routes = [
   },
   // otherwise redirect to home
 
-  { path: "**", redirectTo: "" }
+  { path: "**", redirectTo: "home" }
 ];
 
 @NgModule({
