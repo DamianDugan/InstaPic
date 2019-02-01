@@ -1,15 +1,7 @@
 const Picture = require("../src/models/pictureSchema");
 
-//Just for test the communication between all files
-exports.test = function(req, res) {
-  res.send("pictureController is ok :)");
-};
-
 //Post a new picture
 exports.pictureCreate = function(req, res) {
-  console.log("toto");
-  console.log("yo");
-  console.log(req.body);
   let picture = new Picture({
     // userId a changer apres lorsqu'on pourra récuperer l'id via token
     user_id: req.body.user_id,

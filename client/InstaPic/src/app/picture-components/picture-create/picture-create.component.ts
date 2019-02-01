@@ -71,8 +71,12 @@ export class PictureCreateComponent implements OnInit {
       status: any,
       headers: any
     ) => {
+<<<<<<< HEAD
       console.log('ImageUpload:uploaded:', item, status, response);
       console.log(this.isLoggued());
+=======
+      console.log("ImageUpload:uploaded:", item, status, response);
+>>>>>>> 57fab5839ba1944fe442763bcf44bbd47f84c284
     };
   }
 
