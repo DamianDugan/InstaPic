@@ -5,6 +5,8 @@
         <th scope="col">Picture</th>
         <th scope="col">Username</th>
         <th scope="col">Email</th>
+        <th scope="col">Followers</th>
+        <th scope="col">Following</th>
       </tr>
     </thead>
     <tbody>
@@ -12,6 +14,8 @@
         <td>{{ users.picture }}</td>
         <td>{{ users.username }}</td>
         <td>{{ users.email }}</td>
+        <td>{{ users.followers.length }}</td>
+        <td>{{ users.following.length }}</td>
         <td>
           <button routerLink="/user/update" class="btn btn-primary btn-sm">
             Update Account
