@@ -46,11 +46,19 @@ export class PictureCreateComponent implements OnInit {
   isLoggued = function() {
     const token = localStorage.getItem("token");
     const decodedToken = this.helper.decodeToken(token);
-    console.log(decodedToken);
+    console.log(decodedToken._id);
     return decodedToken._id;
   };
 
   ngOnInit() {
+    //Add _id to formData
+    this.uploader.onBuildItemForm = (fileItem, form) => {
+      form.append("user_id", this.isLoggued());
+      return { fileItem, form };
+    };
+    // console.log(this.uploader.queue);
+    //this.uploader.queue[0].upload();
+
     // override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
     this.uploader.onAfterAddingFile = file => {
       file.withCredentials = false;
@@ -64,7 +72,7 @@ export class PictureCreateComponent implements OnInit {
       headers: any
     ) => {
       console.log("ImageUpload:uploaded:", item, status, response);
-      this.isLoggued();
+      console.log(this.isLoggued());
     };
   }
 

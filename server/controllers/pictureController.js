@@ -1,17 +1,18 @@
-const Picture = require('../src/models/pictureSchema');
+const Picture = require("../src/models/pictureSchema");
 
 //Just for test the communication between all files
 exports.test = function(req, res) {
-  res.send('pictureController is ok :)');
+  res.send("pictureController is ok :)");
 };
 
 //Post a new picture
 exports.pictureCreate = function(req, res) {
-  console.log('toto');
-  console.log('yo');
+  console.log("toto");
+  console.log("yo");
+  console.log(req.body);
   let picture = new Picture({
     // userId a changer apres lorsqu'on pourra récuperer l'id via token
-    user_id: req.decodedToken._id,
+    user_id: req.body.user_id,
     image: req.file.path,
     description: req.body.description,
     album_id: req.body.album_id,
@@ -23,8 +24,8 @@ exports.pictureCreate = function(req, res) {
       console.log(err);
       return res.send(err);
     }
-    console.log('success');
-    res.send('Picture Created successfully');
+    console.log("success");
+    res.send("Picture Created successfully");
   });
 };
 
@@ -35,7 +36,7 @@ exports.getAllPictures = function(req, res) {
       res.send(result);
     })
     .catch(err => {
-      res.send('ErrorMessage : ' + err);
+      res.send("ErrorMessage : " + err);
     });
 };
 
@@ -43,7 +44,7 @@ exports.getAllPictures = function(req, res) {
 exports.getOnePicture = function(req, res) {
   Picture.findById(req.params.id, function(err, picture) {
     if (err) {
-      res.send('Picture does not exist...');
+      res.send("Picture does not exist...");
     }
     res.send(picture);
   });
@@ -53,8 +54,8 @@ exports.getOnePicture = function(req, res) {
 exports.deleteOnePicture = function(req, res) {
   Picture.findOneAndDelete(req.params.id, function(err) {
     if (err) {
-      res.send('Picture not found...');
+      res.send("Picture not found...");
     }
-    res.send('Picture deleted ! :)');
+    res.send("Picture deleted ! :)");
   });
 };
