@@ -10,21 +10,21 @@
 //     console.log(allMetaData);
 //   });
 // }
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-import { PictureService } from './picture.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { NgForm } from "@angular/forms";
+import { PictureService } from "./picture.service";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 // import the file uploader plugin
-import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { FileUploader } from "ng2-file-upload/ng2-file-upload";
 // define the constant url we would be uploading to.
-const URL = 'http://localhost:8000/picture/upload';
+const URL = "http://localhost:8000/picture/upload";
 
 @Component({
-  selector: 'app-picture-create',
-  templateUrl: './picture-create.component.html',
-  styleUrls: ['./picture-create.component.css'],
+  selector: "app-picture-create",
+  templateUrl: "./picture-create.component.html",
+  styleUrls: ["./picture-create.component.css"],
   providers: [PictureService]
 })
 export class PictureCreateComponent implements OnInit {
@@ -36,15 +36,15 @@ export class PictureCreateComponent implements OnInit {
   // pass in the Url to be uploaded to, and pass the itemAlais, which would be the name of the //file input when sending the post request.
   public uploader: FileUploader = new FileUploader({
     url: URL,
-    itemAlias: 'photo'
+    itemAlias: "photo"
   });
   // This is the default title property created by the angular cli. Its responsible for the app works
-  title = 'app works!';
+  title = "app works!";
 
   constructor(private pictureService: PictureService, private router: Router) {}
 
   isLoggued = function() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const decodedToken = this.helper.decodeToken(token);
     console.log(decodedToken._id);
     return decodedToken._id;
@@ -53,7 +53,7 @@ export class PictureCreateComponent implements OnInit {
   ngOnInit() {
     // Add _id to formData
     this.uploader.onBuildItemForm = (fileItem, form) => {
-      form.append('user_id', this.isLoggued());
+      form.append("user_id", this.isLoggued());
       return { fileItem, form };
     };
     // console.log(this.uploader.queue);
@@ -71,31 +71,27 @@ export class PictureCreateComponent implements OnInit {
       status: any,
       headers: any
     ) => {
-<<<<<<< HEAD
-      console.log('ImageUpload:uploaded:', item, status, response);
-      console.log(this.isLoggued());
-=======
       console.log("ImageUpload:uploaded:", item, status, response);
->>>>>>> 57fab5839ba1944fe442763bcf44bbd47f84c284
+      console.log(this.isLoggued());
     };
   }
 
   onSubmit(form: NgForm) {
     this.pictureService.postPicture(form.value).subscribe(
       res => {
-        console.log('res' + res);
+        console.log("res" + res);
         // console.log(form.value);
         this.showSuccessMessage = true;
       },
       err => {
         if (err) {
-          this.serverErrorMessages = err + '<br/>';
+          this.serverErrorMessages = err + "<br/>";
         } else {
           this.serverErrorMessages =
-            'Something went wrong. Please contact admin';
+            "Something went wrong. Please contact admin";
         }
       }
     );
-    this.router.navigate(['/home']);
+    this.router.navigate(["/home"]);
   }
 }
