@@ -13,16 +13,16 @@
         <td>{{ users.username }}</td>
         <td>{{ users.email }}</td>
         <td>
+          <button routerLink="/user/update" class="btn btn-primary btn-sm">
+            Update Account
+          </button>
+        </td>
+        <td>
           <button
             (click)="deleteAccount(users._id)"
             class="btn btn-danger btn-sm"
           >
             Delete Account
-          </button>
-        </td>
-        <td>
-          <button href="user/update/" class="btn btn-primary btn-sm">
-            Update Account
           </button>
         </td>
       </tr>
