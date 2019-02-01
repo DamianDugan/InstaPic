@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" routerLink="/home">Navbar</a>
+  <a class="navbar-brand" routerLink="/home">InstaPic</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -19,14 +19,14 @@
           >Home <span class="sr-only">(current)</span></a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item active" *ngIf="loggued()">
         <a class="nav-link" routerLink="/post-picture">POST a PIC</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active" *ngIf="loggued()">
         <a class="nav-link" routerLink="/profile">Profile</a>
       </li>
-      <li class="nav-item">
-        <div ngbDropdown>
+      <li class="nav-item active " *ngIf="loggued() && isAdmin()">
+        <div class="dropd" ngbDropdown>
           <a id="dropdownBasic1" ngbDropdownToggle> Admin </a>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <a class="dropdown-item" routerLink="/admin/users">Users mod</a>
@@ -36,13 +36,13 @@
         </div>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!loggued()">
         <a class="nav-link" routerLink="/signup">Sign up</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!loggued()">
         <a class="nav-link" routerLink="/signin">Sign in</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="loggued()">
         <a class="nav-link" routerLink="/logout">Logout</a>
       </li>
     </ul>
