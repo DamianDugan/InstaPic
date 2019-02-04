@@ -20,6 +20,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FileSelectDirective } from 'ng2-file-upload';
+import { OneUserComponent } from './one-user/one-user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
     AdminUserComponent,
     NavbarComponent,
     LogoutComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    OneUserComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,9 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 export class ProfileComponent implements OnInit {
   users: Object;
   helper = new JwtHelperService();
+
+
+
   constructor(private userService: UserService) {}
 
   ngOnInit() {

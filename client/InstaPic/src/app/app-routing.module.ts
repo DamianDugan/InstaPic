@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 import { LogoutComponent } from './auth/logout/logout.component';
+import { OneUserComponent } from "./one-user/one-user.component";
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'logout',
     component: LogoutComponent
+  },
+  { 
+    path: "user",
+    component: OneUserComponent 
   },
   // otherwise redirect to home
 
