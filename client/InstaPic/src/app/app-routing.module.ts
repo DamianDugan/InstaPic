@@ -1,29 +1,30 @@
-import { Routes, RouterModule } from "@angular/router";
-import { UserComponent } from "./user/user.component";
-import { SignUpComponent } from "./auth/sign-up/sign-up.component";
-import { ProfileComponent } from "./user/profile/profile.component";
-import { PictureCreateComponent } from "./picture-components/picture-create/picture-create.component";
-import { HomeComponent } from "./home/home.component";
-import { PictureShowComponent } from "./picture-components/picture-show/picture-show.component";
-import { UpdateUserComponent } from "./user/update-user/update-user.component";
-import { NgModule } from "@angular/core";
-import { SignInComponent } from "./auth/sign-in/sign-in.component";
-import { AdminUserComponent } from "./admin/admin-user/admin-user.component";
-import { LogoutComponent } from "./auth/logout/logout.component";
+import { Routes, RouterModule } from '@angular/router';
+import { UserComponent } from './user/user.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { PictureCreateComponent } from './picture-components/picture-create/picture-create.component';
+import { HomeComponent } from './home/home.component';
+import { PictureShowComponent } from './picture-components/picture-show/picture-show.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { NgModule } from '@angular/core';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { AdminUserComponent } from './admin/admin-user/admin-user.component';
+import { LogoutComponent } from './auth/logout/logout.component';
+import { ShowOnePicComponent } from './picture-components/show-one-pic/show-one-pic.component';
 
 const routes: Routes = [
   {
-    path: "signup",
+    path: 'signup',
     component: UserComponent,
-    children: [{ path: "", component: SignUpComponent }]
+    children: [{ path: '', component: SignUpComponent }]
   },
 
   {
-    path: "post-picture",
+    path: 'post-picture',
     component: PictureCreateComponent
   },
   {
-    path: "profile",
+    path: 'profile',
     component: ProfileComponent
   },
   // {
@@ -31,29 +32,33 @@ const routes: Routes = [
   //   component: HomeComponent
   // },
   {
-    path: "home",
+    path: 'home',
     component: PictureShowComponent
   },
 
   {
-    path: "user/update",
+    path: 'user/update',
     component: UpdateUserComponent
   },
   {
-    path: "signin",
+    path: 'signin',
     component: SignInComponent
   },
   {
-    path: "admin/users",
+    path: 'admin/users',
     component: AdminUserComponent
   },
   {
-    path: "logout",
+    path: 'logout',
     component: LogoutComponent
+  },
+  {
+    path: 'picture/:id',
+    component: ShowOnePicComponent
   },
   // otherwise redirect to home
 
-  { path: "**", redirectTo: "home" }
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({

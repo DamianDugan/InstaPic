@@ -1,5 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" routerLink="/home">InstaPic</a>
+  <a class="navbar-brand" routerLink="/home"
+    >&nbsp;
+    <img
+      src="http://localhost:8000/uploads/instapiclog.png"
+      alt=""
+      width="100px"
+    />&nbsp;InstaPic &nbsp;</a
+  >
   <button
     class="navbar-toggler"
     type="button"
@@ -16,26 +23,45 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" routerLink="/home"
-          >Home <span class="sr-only">(current)</span></a
+          >Posts <span class="sr-only">(current)</span></a
         >
       </li>
-      <li class="nav-item" *ngIf="loggued()">
+      <li class="nav-item active" *ngIf="loggued()">
         <a class="nav-link" routerLink="/post-picture">POST a PIC</a>
       </li>
-      <li class="nav-item" *ngIf="loggued()">
+      <li class="nav-item active" *ngIf="loggued()">
         <a class="nav-link" routerLink="/profile">Profile</a>
       </li>
-      <li class="nav-item" *ngIf="loggued() && isAdmin()">
-        <div ngbDropdown>
+
+      <li class="nav-item active " *ngIf="loggued() && isAdmin()">
+        <div class="dropd" ngbDropdown>
           <a id="dropdownBasic1" ngbDropdownToggle> Admin </a>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <a class="dropdown-item" routerLink="/admin/users">Users mod</a>
-            <a class="dropdown-item">Another Action</a>
-            <a class="dropdown-item">Something else is here</a>
+            <a class="dropdown-item">Posts mod</a>
+            <a class="dropdown-item">Albums mod</a>
           </div>
         </div>
       </li>
 
+      <!--
+        <li class="nav-item dropdown active" *ngIf="loggued() && isAdmin()">
+          <a
+          class="nav-link dropdown-toggle"
+          data-toggle="dropdown"
+          href="#"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >Admin</a
+          >
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/admin/users">Users mod</a>
+            <a class="dropdown-item" href="#">Posts mod</a>
+            <a class="dropdown-item" href="#">Albums mod</a>
+          </div>
+        </li>
+      -->
       <li class="nav-item" *ngIf="!loggued()">
         <a class="nav-link" routerLink="/signup">Sign up</a>
       </li>
