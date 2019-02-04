@@ -33,20 +33,20 @@
         <a class="nav-link" routerLink="/profile">Profile</a>
       </li>
 
-      <!--
-        <li class="nav-item active " *ngIf="loggued() && isAdmin()">
-          <div class="dropd" ngbDropdown>
-            <a id="dropdownBasic1" ngbDropdownToggle> Admin </a>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <a class="dropdown-item" routerLink="/admin/users">Users mod</a>
-              <a class="dropdown-item">Another Action</a>
-              <a class="dropdown-item">Something else is here</a>
-            </div>
+      <li class="nav-item active " *ngIf="loggued() && isAdmin()">
+        <div class="dropd" ngbDropdown>
+          <a id="dropdownBasic1" ngbDropdownToggle> Admin </a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a class="dropdown-item" routerLink="/admin/users">Users mod</a>
+            <a class="dropdown-item">Posts mod</a>
+            <a class="dropdown-item">Albums mod</a>
           </div>
-        </li>
-      -->
-      <li class="nav-item dropdown active" *ngIf="loggued() && isAdmin()">
-        <a
+        </div>
+      </li>
+
+      <!--
+        <li class="nav-item dropdown active" *ngIf="loggued() && isAdmin()">
+          <a
           class="nav-link dropdown-toggle"
           data-toggle="dropdown"
           href="#"
@@ -54,13 +54,14 @@
           aria-haspopup="true"
           aria-expanded="false"
           >Admin</a
-        >
-        <div class="dropdown-menu">
-          <a class="dropdown-item" routerLink="/admin/users">Users mod</a>
-          <a class="dropdown-item" href="#">Posts mod</a>
-          <a class="dropdown-item" href="#">Albums mod</a>
-        </div>
-      </li>
+          >
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/admin/users">Users mod</a>
+            <a class="dropdown-item" href="#">Posts mod</a>
+            <a class="dropdown-item" href="#">Albums mod</a>
+          </div>
+        </li>
+      -->
       <li class="nav-item" *ngIf="!loggued()">
         <a class="nav-link" routerLink="/signup">Sign up</a>
       </li>
