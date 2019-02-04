@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngIf="users">
         <td>{{ users.picture }}</td>
         <td>{{ users.username }}</td>
         <td>{{ users.email }}</td>
@@ -31,7 +31,13 @@
 
   <br />
 
-  <textarea class="form-control" name="description" id="description" cols="5">
+  <textarea
+    *ngIf="users"
+    class="form-control"
+    name="description"
+    id="description"
+    cols="5"
+  >
       {{ users.description }}</textarea
   >
 </div>

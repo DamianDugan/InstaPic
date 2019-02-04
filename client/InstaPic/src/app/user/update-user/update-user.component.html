@@ -1,1 +1,69 @@
 <h2>UPDATE YOUR BEAUTIFUL PROFILE</h2>
+
+<form
+  #UpdateUserForm="ngForm"
+  (ngSubmit)="UpdateUserForm.valid && onSubmit(UpdateUserForm)"
+>
+  <div class="form-group m-4 container mx-auto">
+    <input
+      type="file"
+      #picture="ngModel"
+      name="picture"
+      [(ngModel)]="userService.selectedUser.picture"
+      class="form-control-file"
+      type="file"
+      value="{{ userService.selectedUser.picture }}"
+      accept="image/png, image/jpeg, image/gif"
+    />
+    <input
+      #username="ngModel"
+      name="username"
+      [(ngModel)]="userService.selectedUser.username"
+      class="form-control-file"
+      type="text"
+      value="{{ userService.selectedUser.username }}"
+    />
+
+    <br />
+
+    <input
+      #email="ngModel"
+      name="email"
+      [(ngModel)]="userService.selectedUser.email"
+      class="form-control-file"
+      type="email"
+      value="{{ userService.selectedUser.email }}"
+    />
+
+    <br />
+
+    <input
+      #password="ngModel"
+      name="password"
+      [(ngModel)]="userService.selectedUser.password"
+      class="form-control-file"
+      type="password"
+      value="{{ userService.selectedUser.password }}"
+    />
+
+    <br />
+
+    <textarea
+      class="form-control"
+      name="description"
+      #description="ngModel"
+      [(ngModel)]="userService.selectedUser.description"
+    ></textarea>
+
+    <br />
+
+    <input
+      type="hidden"
+      #id="ngModel"
+      [(ngModel)]="userService.selectedUser.id"
+      name="id"
+    />
+    <br />
+    <input type="submit" value="submit" class="btn btn-primary " />
+  </div>
+</form>
