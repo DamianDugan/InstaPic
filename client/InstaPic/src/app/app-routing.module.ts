@@ -11,6 +11,7 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { OneUserComponent } from "./one-user/one-user.component";
+import { ShowOnePicComponent } from './picture-components/show-one-pic/show-one-pic.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,10 @@ const routes: Routes = [
   { 
     path: "user",
     component: OneUserComponent 
+  },
+  {
+    path: 'picture/:id',
+    component: ShowOnePicComponent
   },
   // otherwise redirect to home
 

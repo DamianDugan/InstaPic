@@ -3,8 +3,6 @@ const router = express.Router();
 
 const pictureController = require("../controllers/pictureController");
 
-router.get("/test", pictureController.test);
-
 router.post("/create", pictureController.pictureCreate);
 
 var multer = require("multer");
