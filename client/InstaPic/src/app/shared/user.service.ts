@@ -36,6 +36,10 @@ export class UserService {
     return this.http.get(environment.apiBaseUrl + "/user/");
   }
 
+  userGetOne(id : string) {
+    return this.router.navigate(["user", { id: id }]);
+  }
+
   showUser(id: String) {
     return this.http.get(environment.apiBaseUrl + `/user/` + id);
   }

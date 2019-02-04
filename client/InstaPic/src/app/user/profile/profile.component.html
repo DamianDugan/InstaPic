@@ -5,8 +5,8 @@
         <th scope="col">Profil picture</th>
         <th scope="col">Username</th>
         <th scope="col">Email</th>
-        <th></th>
-        <th></th>
+        <th scope="col">Followers</th>
+        <th scope="col">Following</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +15,8 @@
         <td><img src="http://localhost:8000/{{ users.picture }}" alt="" /></td>
         <td>{{ users.username }}</td>
         <td>{{ users.email }}</td>
+        <td>{{ users.followers.length }}</td>
+        <td>{{ users.following.length }}</td>
         <td>
           <button routerLink="/user/update" class="btn btn-primary btn-sm">
             Update Account

@@ -11,13 +11,19 @@ export class AdminUserComponent implements OnInit {
   users: Object;
   helper = new JwtHelperService();
 
-  constructor(private data: UserService) {}
 
   getAllUsers() {
     this.data.showAll().subscribe(data => {
       this.users = data;
     });
   }
+
+  singleUser(id : string) {
+    return this.data.userGetOne(id);
+  }
+
+  constructor(private data: UserService) {}
+
 
   ngOnInit() {
     const token = this.data.getToken();
