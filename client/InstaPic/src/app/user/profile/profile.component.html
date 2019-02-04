@@ -10,13 +10,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngIf="users"></tr>
-      <tr>
+      <tr *ngIf="users">
         <td><img src="http://localhost:8000/{{ users.picture }}" alt="" /></td>
         <td>{{ users.username }}</td>
         <td>{{ users.email }}</td>
-        <td>{{ users.followers.length }}</td>
-        <td>{{ users.following.length }}</td>
+
+        <ng-container *ngIf="users.followers; else elseBlock">
+          <td>{{ users.followers.length }}</td>
+        </ng-container>
+        <ng-template #elseBlock> <td>0</td> </ng-template>
+
+        <ng-container *ngIf="users.following; else elseBlock">
+          <td>{{ users.following.length }}</td>
+        </ng-container>
+        <ng-template #elseBlock> <td>0</td> </ng-template>
+
         <td>
           <button routerLink="/user/update" class="btn btn-primary btn-sm">
             Update Account

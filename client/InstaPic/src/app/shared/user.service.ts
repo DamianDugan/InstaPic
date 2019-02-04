@@ -36,7 +36,7 @@ export class UserService {
     return this.http.get(environment.apiBaseUrl + "/user/");
   }
 
-  userGetOne(id : string) {
+  userGetOne(id: string) {
     return this.router.navigate(["user", { id: id }]);
   }
 
@@ -50,7 +50,7 @@ export class UserService {
 
   updateUser(user) {
     const newUser = user;
-    return this.http.put(environment.apiBaseUrl + "/user/" + user.id, newUser);
+    return this.http.put(environment.apiBaseUrl + "/user/" + user._id, newUser);
   }
 
   // LOGIN

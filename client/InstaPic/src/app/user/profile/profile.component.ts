@@ -12,8 +12,6 @@ export class ProfileComponent implements OnInit {
   users: Object;
   helper = new JwtHelperService();
 
-
-
   constructor(private userService: UserService) {}
 
   ngOnInit() {
@@ -21,7 +19,6 @@ export class ProfileComponent implements OnInit {
     const decodedToken = this.helper.decodeToken(token);
     const idDecode = decodedToken._id;
     this.userService.showUser(idDecode).subscribe(user => {
-      console.log(user);
       this.users = user;
     });
   }
