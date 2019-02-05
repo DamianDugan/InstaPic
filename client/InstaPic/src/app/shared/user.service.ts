@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Router } from "@angular/router";
+import { Observable, Subject, throwError} from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { environment } from "../../environments/environment";
 import { User } from "./user.model";
@@ -93,5 +95,15 @@ export class UserService {
 
   toHome() {
     this.router.navigate(["/"]);
+  }
+
+  // Follow / Unfollow
+
+  follow(userId, userFollowedId) {
+    return this.http.put(environment.apiBaseUrl + "/user/follow/" + userId, { followers: userFollowedId});
+  }
+
+  unfollow(userId, userFollowedId){
+    return this.http.put(environment.apiBaseUrl + "/user/follow/" + userId, { followers: userFollowedId});
   }
 }

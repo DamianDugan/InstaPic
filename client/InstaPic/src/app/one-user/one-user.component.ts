@@ -18,6 +18,8 @@ export class OneUserComponent implements OnInit {
   AdminToken: Boolean;
   idEqualCurrentUser: Boolean;
 
+  public isFollow: boolean = false;
+
   constructor(private route: ActivatedRoute, private data: UserService) {}
 
   ngOnInit() {
@@ -32,5 +34,9 @@ export class OneUserComponent implements OnInit {
     });
 
     this.AdminToken = decodedToken.isAdmin;
+  }
+
+  follow(id) {
+
   }
 }

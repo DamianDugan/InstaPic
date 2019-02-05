@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 export class UpdateUserComponent implements OnInit {
   users: Object;
   helper = new JwtHelperService();
+  id: String
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -19,14 +20,15 @@ export class UpdateUserComponent implements OnInit {
     const token = this.userService.getToken();
     const decodedToken = this.helper.decodeToken(token);
     const idDecode = decodedToken._id;
-    console.log(this.userService.selectedUser);
+    // console.log(this.userService.selectedUser);
     this.userService.showUser(idDecode).subscribe(user => {
       this.users = user;
     });
   }
 
   userUpdate(form: NgForm) {
-    form.value._id = this.users._id;
+    //form.value._id = this.users._id;
+    //console.log(this.users._id);
     this.userService.updateUser(form.value).subscribe(newUser => {
       this.users = newUser;
       this.router.navigate(["/profile"]);
