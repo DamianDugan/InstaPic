@@ -12,16 +12,16 @@
       [(ngModel)]="userService.selectedUser.picture"
       class="form-control-file"
       type="file"
-      value="{{ userService.selectedUser.picture }}"
+      value="{{ users.picture }}"
       accept="image/png, image/jpeg, image/gif"
     />
     <input
       #username="ngModel"
       name="username"
-      [(ngModel)]="users.username"
+      [(ngModel)]="userService.selectedUser.username"
       class="form-control"
       type="text"
-      value="{{ userService.selectedUser.username }}"
+      value="{{ users.username }}"
     />
 
     <br />
@@ -29,10 +29,10 @@
     <input
       #email="ngModel"
       name="email"
-      [(ngModel)]="users.email"
+      [(ngModel)]="userService.selectedUser.email"
       class="form-control"
       type="email"
-      value="{{ userService.selectedUser.email }}"
+      value="{{ users.email }}"
     />
 
     <br />
@@ -52,7 +52,7 @@
       class="form-control"
       name="description"
       #description="ngModel"
-      [(ngModel)]="users.description"
+      [(ngModel)]="userService.selectedUser.description"
       value="{{ users.description }}"
     ></textarea>
 
