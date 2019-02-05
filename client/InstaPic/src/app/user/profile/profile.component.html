@@ -5,8 +5,8 @@
         <th scope="col">Profil picture</th>
         <th scope="col">Username</th>
         <th scope="col">Email</th>
-        <th></th>
-        <th></th>
+        <th scope="col">Followers</th>
+        <th scope="col">Following</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +14,17 @@
         <td><img src="http://localhost:8000/{{ users.picture }}" alt="" /></td>
         <td>{{ users.username }}</td>
         <td>{{ users.email }}</td>
+
+        <ng-container *ngIf="users.followers; else elseBlock">
+          <td>{{ users.followers.length }}</td>
+        </ng-container>
+        <ng-template #elseBlock> <td>0</td> </ng-template>
+
+        <ng-container *ngIf="users.following; else elseBlock">
+          <td>{{ users.following.length }}</td>
+        </ng-container>
+        <ng-template #elseBlock> <td>0</td> </ng-template>
+
         <td>
           <button routerLink="/user/update" class="btn btn-primary btn-sm">
             Update Account

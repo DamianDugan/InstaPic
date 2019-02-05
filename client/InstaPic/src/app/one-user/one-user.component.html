@@ -1,0 +1,29 @@
+<div class="container text-center">
+  <h1>User</h1>
+
+  <div class="jumbotron">
+    <h1 class="display-4">{{ currentUser.username }}</h1>
+    <p class="lead">{{ currentUser.email }}</p>
+    <hr class="my-4" />
+    <p>Followers : {{ currentUser.followers.length }}</p>
+    <p>Following : {{ currentUser.following.length }}</p>
+    <button
+      *ngIf="AdminToken || idEqualCurrentUser"
+      type="button"
+      class="btn btn-info"
+    >
+      Edit Account
+    </button>
+    <p></p>
+    <button
+      *ngIf="AdminToken || idEqualCurrentUser"
+      type="button"
+      class="btn btn-danger"
+    >
+      Delete Account
+    </button>
+    <p></p>
+    <button type="button">Follow</button> 
+    <button type="button">Unfollow</button>
+  </div>
+</div>

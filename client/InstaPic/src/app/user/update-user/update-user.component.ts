@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/shared/user.service";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { NgForm } from "@angular/forms";
+import { Router } from "@angular/router";
+import { User } from "src/app/shared/user.model";
 
 @Component({
   selector: "app-update-user",
@@ -11,24 +13,25 @@ import { NgForm } from "@angular/forms";
 export class UpdateUserComponent implements OnInit {
   users: Object;
   helper = new JwtHelperService();
+  id: string;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
     const token = this.userService.getToken();
     const decodedToken = this.helper.decodeToken(token);
-    const idDecode = decodedToken._id;
-    console.log(this.userService);
-    this.userService.showUser(idDecode).subscribe(user => {
+    this.id = decodedToken._id;
+    this.userService.showUser(this.id).subscribe(user => {
       this.users = user;
     });
   }
 
-  onSubmit(form: NgForm) {
-    console.log(this.userService);
-    this.userService.updateUser(this.userService).subscribe(newUser => {
-      console.log(newUser);
+  userUpdate(form: NgForm) {
+    form.value._id = this.id;
+    console.log(form.value._id);
+    this.userService.updateUser(form.value).subscribe(newUser => {
       this.users = newUser;
+      this.router.navigate(["/profile"]);
     });
   }
 }

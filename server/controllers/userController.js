@@ -30,22 +30,8 @@ exports.getUser = function(req, res) {
 //FUNCTION FOR UPDATE ONE USER
 exports.updateUser = function(req, res) {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
-    body = {
-      username: req.body.username,
-      email: req.body.email,
-      password: hash,
-      picture: req.body.picture,
-      description: req.body.description,
-      isAdmin: req.body.isAdmin,
-      followers: req.body.followers,
-      following: req.body.following,
-      isBanned: req.body.isBanned
-    };
-    options = {
-      upsert: true,
-      new: true
-    };
-    User.findByIdAndUpdate({ _id: req.params.id }, body, options)
+    req.body.password = hash;
+    User.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true })
       .exec()
       .then(result => {
         if (result) {
