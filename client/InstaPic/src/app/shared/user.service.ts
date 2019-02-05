@@ -45,7 +45,7 @@ export class UserService {
   }
 
   updateUser(user) {
-    const newUser = JSON.parse(user);
+    const newUser = user;
     return this.http.put(environment.apiBaseUrl + "/user/" + user.id, newUser);
   }
 

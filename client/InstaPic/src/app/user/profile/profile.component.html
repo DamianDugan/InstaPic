@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngIf="users">
         <td><img src="http://localhost:8000/{{ users.picture }}" alt="" /></td>
         <td>{{ users.username }}</td>
         <td>{{ users.email }}</td>
@@ -33,7 +33,13 @@
 
   <br />
 
-  <textarea class="form-control" name="description" id="description" cols="5">
+  <textarea
+    *ngIf="users"
+    class="form-control"
+    name="description"
+    id="description"
+    cols="5"
+  >
       {{ users.description }}</textarea
   >
 </div>

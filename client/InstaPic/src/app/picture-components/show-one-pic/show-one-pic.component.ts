@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Picture } from '../picture-create/picture.model';
 import { PictureService } from '../picture-create/picture.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-show-one-pic',
@@ -8,18 +9,26 @@ import { PictureService } from '../picture-create/picture.service';
   styleUrls: ['./show-one-pic.component.css']
 })
 export class ShowOnePicComponent implements OnInit {
-  picture: Picture[] = [];
-  constructor(private pictureService: PictureService) {}
+  picture: Picture[] = [] as Picture[];
+
+  public id: string;
+  constructor(
+    private pictureService: PictureService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    // const id = this.pictureService.id;
-    // this.showOnePicture(id);
-  }
-
-  private showOnePicture(id) {
-    this.pictureService.showOnePicture(id).subscribe(picture => {
-      console.log(picture);
-      this.picture = picture as Picture[];
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.pictureService.showOnePicture(this.id).subscribe(pict => {
+      this.picture = pict;
+      console.log(pict);
     });
   }
+
+  // private showOnePicture(id) {
+  //   this.pictureService.showOnePicture(id).subscribe(picture => {
+  //     console.log(picture);
+  //     this.picture = picture as Picture[];
+  //   });
+  // }
 }
