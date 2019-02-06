@@ -23,11 +23,7 @@
       Delete Account
     </button>
     <p></p>
-    <button
-      [ngClass]="{ followup: isFollow == true, unfollow: isFollow == false }"
-      (click)="onClick()"
-    >
-      {{ isFollow == true ? "Unfollow" : isFollow == false ? "Follow" : "" }}
-    </button>
+    <button (click)="follow()" class="btn btn-info">Follow</button>
+    <button (click)="unfollow()" class="btn btn-info">Unfollow</button>
   </div>
 </div>

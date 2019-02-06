@@ -100,10 +100,11 @@ export class UserService {
   // Follow / Unfollow
 
   follow(userId, userFollowedId) {
-    return this.http.put(environment.apiBaseUrl + "/user/follow/" + userId, { followers: userFollowedId});
+    console.log(environment.apiBaseUrl + "/user/follow" + userId);
+    return this.http.put(environment.apiBaseUrl + "/user/follow/" + userId, { followers: userFollowedId });
   }
 
   unfollow(userId, userFollowedId){
-    return this.http.put(environment.apiBaseUrl + "/user/follow/" + userId, { followers: userFollowedId});
+    return this.http.put(environment.apiBaseUrl + "/user/unfollow/" + userId, { followers: userFollowedId });
   }
 }
