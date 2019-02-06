@@ -62,3 +62,37 @@ exports.deleteUser = function(req, res) {
       res.status(500).send('Error : ' + err);
     });
 };
+
+// Follow function
+
+exports.follow = function(req, res) {
+  User.update(
+    { _id: req.params.id },
+    {
+      $push: { followers: req.body.followers }
+    }
+  ).then(res => {
+    User.update(
+      { _id: req.body.followers },
+      {
+        $push: { following: req.params.id }
+      }
+    ).exec();
+  });
+};
+
+exports.unfollow = function(req, res) {
+  User.update(
+    { _id: req.params.id },
+    {
+      $pull: { followers: req.body.followers }
+    }
+  ).then(res => {
+    User.update(
+      { _id: req.body.followers },
+      {
+        $pull: { following: req.params.id }
+      }
+    ).exec();
+  });
+};
