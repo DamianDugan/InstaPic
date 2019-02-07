@@ -2,10 +2,11 @@ const Album = require('../src/models/AlbumSchema');
 
 //Get ALL
 exports.getAllAlbums = function(req, res) {
-  User.find({}, function(err, albums) {
+  Album.find({ user_id: req.params.id }, function(err, albums) {
     if (err) {
       res.send('no albums in the db');
     } else {
+      console.log(req.params);
       res.send(albums);
     }
   });

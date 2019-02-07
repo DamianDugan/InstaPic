@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { Picture } from "../picture-create/picture.model";
-import { PictureService } from "../picture-create/picture.service";
-import { UserService } from "src/app/shared/user.service";
-import { JwtHelperService } from "@auth0/angular-jwt";
+import { Component, OnInit } from '@angular/core';
+import { Picture } from '../picture-create/picture.model';
+import { PictureService } from '../picture-create/picture.service';
+import { UserService } from 'src/app/shared/user.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
-  selector: "app-picture-show",
-  templateUrl: "./picture-show.component.html",
-  styleUrls: ["./picture-show.component.css"]
+  selector: 'app-picture-show',
+  templateUrl: './picture-show.component.html',
+  styleUrls: ['./picture-show.component.css']
 })
 export class PictureShowComponent implements OnInit {
   pictures: Picture[] = [];
@@ -38,4 +38,11 @@ export class PictureShowComponent implements OnInit {
     //   this.userService;
     // });
   }
+
+  // private getAlbumsByUser(id) {
+  //   let token = this.userService.getToken();
+  //   let decoded = this.helper.decodeToken(token);
+  //   const decodeIdUser = decoded._id;
+  //   id = this.albumservice.getAlbumsByUser(decodeIdUser);
+  // }
 }

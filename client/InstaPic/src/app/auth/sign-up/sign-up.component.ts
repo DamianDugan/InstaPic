@@ -1,13 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { UserService } from '../../shared/user.service';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/shared/user.model';
 
 @Component({
-  selector: "app-sign-up",
-  templateUrl: "./sign-up.component.html",
-  styleUrls: ["./sign-up.component.css"],
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.css'],
   providers: [UserService]
 })
 export class SignUpComponent implements OnInit {
@@ -16,7 +17,7 @@ export class SignUpComponent implements OnInit {
 
   newUser: User;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -26,13 +27,14 @@ export class SignUpComponent implements OnInit {
         this.showSuccessMessage = true;
         setTimeout(() => (this.showSuccessMessage = false), 4000);
         this.resetForm(form);
+        this.router.navigate(['/signin']);
       },
       err => {
         if (err) {
           this.serverErrorMessages = err + '<br/>';
         } else {
           this.serverErrorMessages =
-            "Something went wrong. Please contact admin";
+            'Something went wrong. Please contact admin';
         }
       }
     );
@@ -51,6 +53,6 @@ export class SignUpComponent implements OnInit {
     //   confirm_password: ""
     // };
     form.resetForm();
-    this.serverErrorMessages = "";
+    this.serverErrorMessages = '';
   }
 }

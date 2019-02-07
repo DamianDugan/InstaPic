@@ -46,6 +46,7 @@
 
   <textarea
     *ngIf="users"
+    placeholder="Description"
     class="form-control"
     name="description"
     id="description"
@@ -53,4 +54,19 @@
   >
       {{ users.description }}</textarea
   >
+  <br />
+  <h2 class="text-center">
+    <i class="far fa-images"></i> {{ users.username }}'s Albums:
+  </h2>
+  <br />
+  <div class="row m-4  mx-auto" style="width: 80%">
+    <div class="card  col-lg-3 text-center" *ngFor="let album of albums">
+      <br />
+      <i class="far fa-images"></i>
+      {{ album.name }}
+
+      <hr />
+      <div class="card-body text-center"></div>
+    </div>
+  </div>
 </div>

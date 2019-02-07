@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class AlbumService {
   selectedAlbum: Album = {
     pictureId: '',
-    userId: '',
+    user_id: '',
     name: ''
   };
   constructor(private http: HttpClient) {}
@@ -18,6 +18,10 @@ export class AlbumService {
   postAlbum(album: Album) {
     // console.log(picture);
     return this.http.post(environment.apiBaseUrl + '/album/', album);
+  }
+
+  getAlbumsByUser(user_id: String) {
+    return this.http.get(environment.apiBaseUrl + '/album/' + user_id);
   }
 
   getToken() {

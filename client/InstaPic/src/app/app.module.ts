@@ -24,6 +24,8 @@ import { OneUserComponent } from './one-user/one-user.component';
 import { ShowOnePicComponent } from './picture-components/show-one-pic/show-one-pic.component';
 import { AlbumCreateComponent } from './album-create/album-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
+import { SearchService } from './search/search.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FileSelectDirective,
     OneUserComponent,
     ShowOnePicComponent,
-    AlbumCreateComponent
+    AlbumCreateComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

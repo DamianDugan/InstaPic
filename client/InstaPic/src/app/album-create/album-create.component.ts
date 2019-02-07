@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   providers: [AlbumService]
 })
 export class AlbumCreateComponent implements OnInit {
-  users: Object; /// bug ici
+  users: Object;
   showSuccessMessage: boolean;
   serverErrorMessages: string;
 
@@ -30,17 +30,17 @@ export class AlbumCreateComponent implements OnInit {
     const token = this.data.getToken();
     const decodedToken = this.helper.decodeToken(token);
     this.users = decodedToken._id;
-    console.log(this.users); // bug ici
+    console.log(this.users);
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value.name + ' hey');
-    console.log('oh ' + form.value); /// bug ici
+    console.log(form.value);
     this.AlbumService.postAlbum(form.value).subscribe(
       res => {
-        console.log('res' + res);
+        console.log(res);
         // console.log(form.value);
         this.showSuccessMessage = true;
+        this.router.navigate(['/profile']);
       },
       err => {
         if (err) {
@@ -51,6 +51,5 @@ export class AlbumCreateComponent implements OnInit {
         }
       }
     );
-    // this.router.navigate(['/home']);
   }
 }
