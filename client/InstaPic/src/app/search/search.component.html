@@ -1,0 +1,25 @@
+<div class="row m-4  mx-auto" style="width: 80%">
+  <section class="filter-wrapper">
+    <div class="keyword-wrapper">
+      <input
+        [formControl]="queryField"
+        type="text"
+        id="keyword"
+        placeholder="search for users..."
+        autofocus
+      />
+    </div>
+    <ul class="filter-select">
+      <li *ngFor="let result of results" class="filter-select-list">
+        <p class="artist-name">
+          {{ result.username }}
+        </p>
+        <span
+          class="tags"
+          *ngFor="let username of (result?.username | slice: 0:6)"
+          >{{ username }}</span
+        >
+      </li>
+    </ul>
+  </section>
+</div>

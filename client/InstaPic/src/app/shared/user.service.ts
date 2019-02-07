@@ -1,45 +1,45 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Router } from "@angular/router";
-import { Observable, Subject, throwError} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Observable, Subject, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { environment } from "../../environments/environment";
-import { User } from "./user.model";
+import { environment } from '../../environments/environment';
+import { User } from './user.model';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class UserService {
   selectedUser: User = {
-    id: "",
-    username: "",
-    email: "",
-    password: "",
-    confirm_password: "",
-    picture: "",
-    description: "",
-    token: "",
+    id: '',
+    username: '',
+    email: '',
+    password: '',
+    confirm_password: '',
+    picture: '',
+    description: '',
+    token: '',
     followers: 0,
     following: 0
   };
 
-  noAuthHeader = { headers: new HttpHeaders({ NoAuth: "True" }) };
+  noAuthHeader = { headers: new HttpHeaders({ NoAuth: 'True' }) };
 
   constructor(private http: HttpClient, private router: Router) {}
 
   // REGISTER
   postUser(user: User) {
-    return this.http.post(environment.apiBaseUrl + "/signup/", user);
+    return this.http.post(environment.apiBaseUrl + '/signup/', user);
   }
 
   // CRUD USER
   showAll() {
-    return this.http.get(environment.apiBaseUrl + "/user/");
+    return this.http.get(environment.apiBaseUrl + '/user/');
   }
 
   userGetOne(id: string) {
-    return this.router.navigate(["user", { id: id }]);
+    return this.router.navigate(['user', { id: id }]);
   }
 
   showUser(id: String) {
@@ -47,18 +47,18 @@ export class UserService {
   }
 
   delUser(id: String) {
-    return this.http.delete(environment.apiBaseUrl + "/user/" + id);
+    return this.http.delete(environment.apiBaseUrl + '/user/' + id);
   }
 
   updateUser(user) {
     const newUser = user;
-    return this.http.put(environment.apiBaseUrl + "/user/" + user._id, newUser);
+    return this.http.put(environment.apiBaseUrl + '/user/' + user._id, newUser);
   }
 
   // LOGIN
   login(authCredentials) {
     return this.http.post(
-      environment.apiBaseUrl + "/login",
+      environment.apiBaseUrl + '/login',
       authCredentials,
       this.noAuthHeader
     );
@@ -67,22 +67,22 @@ export class UserService {
   //Helper Methods
 
   setToken(token: string) {
-    localStorage.setItem("token", token);
+    localStorage.setItem('token', token);
   }
 
   getToken() {
-    return localStorage.getItem("token");
+    return localStorage.getItem('token');
   }
 
   deleteToken() {
-    localStorage.removeItem("token");
-    this.router.navigate(["/signin"]);
+    localStorage.removeItem('token');
+    this.router.navigate(['/signin']);
   }
 
   getUserPayload() {
     var token = this.getToken();
     if (token) {
-      var userPayload = atob(token.split(".")[1]);
+      var userPayload = atob(token.split('.')[1]);
       return JSON.parse(userPayload);
     } else return null;
   }
@@ -94,17 +94,21 @@ export class UserService {
   }
 
   toHome() {
-    this.router.navigate(["/"]);
+    this.router.navigate(['/']);
   }
 
   // Follow / Unfollow
 
   follow(userId, userFollowedId) {
-    console.log(environment.apiBaseUrl + "/user/follow" + userId);
-    return this.http.put(environment.apiBaseUrl + "/user/follow/" + userId, { followers: userFollowedId });
+    console.log(environment.apiBaseUrl + '/user/follow' + userId);
+    return this.http.put(environment.apiBaseUrl + '/user/follow/' + userId, {
+      followers: userFollowedId
+    });
   }
 
-  unfollow(userId, userFollowedId){
-    return this.http.put(environment.apiBaseUrl + "/user/unfollow/" + userId, { followers: userFollowedId });
+  unfollow(userId, userFollowedId) {
+    return this.http.put(environment.apiBaseUrl + '/user/unfollow/' + userId, {
+      followers: userFollowedId
+    });
   }
 }

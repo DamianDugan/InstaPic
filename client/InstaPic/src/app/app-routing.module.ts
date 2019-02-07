@@ -10,8 +10,10 @@ import { NgModule } from '@angular/core';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 import { LogoutComponent } from './auth/logout/logout.component';
-import { OneUserComponent } from "./one-user/one-user.component";
+import { OneUserComponent } from './one-user/one-user.component';
 import { ShowOnePicComponent } from './picture-components/show-one-pic/show-one-pic.component';
+import { AlbumCreateComponent } from './album-create/album-create.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -53,13 +55,21 @@ const routes: Routes = [
     path: 'logout',
     component: LogoutComponent
   },
-  { 
-    path: "user",
-    component: OneUserComponent 
+  {
+    path: 'user',
+    component: OneUserComponent
   },
   {
     path: 'picture/:id',
     component: ShowOnePicComponent
+  },
+  {
+    path: 'album',
+    component: AlbumCreateComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
   },
   // otherwise redirect to home
 

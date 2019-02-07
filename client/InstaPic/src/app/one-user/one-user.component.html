@@ -8,7 +8,7 @@
     <p>Followers : {{ currentUser.followers.length }}</p>
     <p>Following : {{ currentUser.following.length }}</p>
     <button
-      *ngIf="AdminToken || idEqualCurrentUser"
+      *ngIf="AdminToken || isAdmin() || idEqualCurrentUser"
       type="button"
       class="btn btn-info"
     >
@@ -23,7 +23,7 @@
       Delete Account
     </button>
     <p></p>
-    <button (click)="follow()" class="btn btn-info">Follow</button>
+    <button (click)="follow()" class="btn btn-info">Follow</button> &nbsp;
     <button (click)="unfollow()" class="btn btn-info">Unfollow</button>
   </div>
 </div>

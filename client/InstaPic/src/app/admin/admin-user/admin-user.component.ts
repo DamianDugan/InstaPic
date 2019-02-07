@@ -1,16 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { UserService } from "../../shared/user.service";
-import { JwtHelperService } from "@auth0/angular-jwt";
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../shared/user.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
-  selector: "app-admin-user",
-  templateUrl: "./admin-user.component.html",
-  styleUrls: ["./admin-user.component.css"]
+  selector: 'app-admin-user',
+  templateUrl: './admin-user.component.html',
+  styleUrls: ['./admin-user.component.css']
 })
 export class AdminUserComponent implements OnInit {
   users: Object;
   helper = new JwtHelperService();
-
 
   getAllUsers() {
     this.data.showAll().subscribe(data => {
@@ -18,12 +17,11 @@ export class AdminUserComponent implements OnInit {
     });
   }
 
-  singleUser(id : string) {
+  singleUser(id: string) {
     return this.data.userGetOne(id);
   }
 
   constructor(private data: UserService) {}
-
 
   ngOnInit() {
     const token = this.data.getToken();

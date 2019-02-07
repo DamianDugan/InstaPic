@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { Picture } from "../picture-create/picture.model";
-import { PictureService } from "../picture-create/picture.service";
-import { UserService } from "src/app/shared/user.service";
-import { JwtHelperService } from "@auth0/angular-jwt";
-import { decode } from "punycode";
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Picture } from '../picture-create/picture.model';
+import { PictureService } from '../picture-create/picture.service';
+import { UserService } from 'src/app/shared/user.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { decode } from 'punycode';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: "app-picture-show",
-  templateUrl: "./picture-show.component.html",
-  styleUrls: ["./picture-show.component.css"]
+  selector: 'app-picture-show',
+  templateUrl: './picture-show.component.html',
+  styleUrls: ['./picture-show.component.css']
 })
 export class PictureShowComponent implements OnInit {
   pictures: Picture[] = [];
