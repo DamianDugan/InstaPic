@@ -1,13 +1,13 @@
 // Built-in imports
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 // Components imports
-import { PictureCreateComponent } from "./picture-components/picture-create/picture-create.component";
-import { AppComponent } from "./app.component";
-import { UserComponent } from "./user/user.component";
-import { SignUpComponent } from "./auth/sign-up/sign-up.component";
+import { PictureCreateComponent } from './picture-components/picture-create/picture-create.component';
+import { AppComponent } from './app.component';
+import { UserComponent } from './user/user.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
 // Routes
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './user/profile/profile.component';
@@ -21,8 +21,9 @@ import { LogoutComponent } from './auth/logout/logout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { OneUserComponent } from './one-user/one-user.component';
-import { ShowOnePicComponent } from "./picture-components/show-one-pic/show-one-pic.component";
-
+import { ShowOnePicComponent } from './picture-components/show-one-pic/show-one-pic.component';
+import { AlbumCreateComponent } from './album-create/album-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,14 +41,16 @@ import { ShowOnePicComponent } from "./picture-components/show-one-pic/show-one-
     LogoutComponent,
     FileSelectDirective,
     OneUserComponent,
-    ShowOnePicComponent
+    ShowOnePicComponent,
+    AlbumCreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

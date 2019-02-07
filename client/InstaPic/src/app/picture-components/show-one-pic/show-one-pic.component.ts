@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./show-one-pic.component.css']
 })
 export class ShowOnePicComponent implements OnInit {
-  picture: Picture[] = [] as Picture[];
+  picture: object; // Picture[] = [] as Picture[];
 
   public id: string;
   constructor(
