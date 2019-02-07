@@ -33,4 +33,25 @@ export class OneUserComponent implements OnInit {
 
     this.AdminToken = decodedToken.isAdmin;
   }
+
+  follow() {
+    console.log("Suce pute");
+    const user = this.data.getToken();
+    const decodedToken = this.helper.decodeToken(user);
+    this.id = this.route.snapshot.paramMap.get("id");
+    console.log(this.id);
+    console.log(decodedToken._id);
+    this.data.follow(decodedToken._id , this.id).subscribe(test => {
+      console.log(test)
+    });
+  }
+
+  unfollow() {
+    const user = this.data.getToken();
+    const decodedToken = this.helper.decodeToken(user);
+    this.id = this.route.snapshot.paramMap.get("id");
+    this.data.unfollow(decodedToken._id , this.id).subscribe(() => {
+      console.log('tryphon')
+    })
+  }
 }
