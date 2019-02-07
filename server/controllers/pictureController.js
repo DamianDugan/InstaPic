@@ -153,30 +153,4 @@ exports.unlike = function(req, res) {
         res.status(500).send("Error : " + err);
       });
   });
-  // Picture.findById(req.params.id, function(err, picture) {
-  //   if (err) {
-  //     res.send("Picture does not exist...");
-  //   }
-  //   picture.likes.forEach(function(like) {
-  //     if (req.body.likes) {
-  //       Picture.findByIdAndUpdate(
-  //         { _id: req.params.id },
-  //         {
-  //           $pull: { likes: req.body.likes }
-  //         }
-  //       )
-  //         .exec()
-  //         .then(result => {
-  //           if (result) {
-  //             res.status(200).json(result);
-  //           } else {
-  //             res.status(404).send("Picture not found");
-  //           }
-  //         })
-  //         .catch(err => {
-  //           res.status(500).send("Error : " + err);
-  //         });
-  //     } else return;
-  //   });
-  // });
 };
