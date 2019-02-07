@@ -3,6 +3,8 @@ import { Picture } from '../picture-create/picture.model';
 import { PictureService } from '../picture-create/picture.service';
 import { UserService } from 'src/app/shared/user.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { decode } from 'punycode';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-picture-show',
@@ -12,9 +14,12 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class PictureShowComponent implements OnInit {
   pictures: Picture[] = [];
   helper = new JwtHelperService();
+  id: string;
+
   constructor(
     private pictureService: PictureService,
-    private userService: UserService
+    private userService: UserService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -27,22 +32,4 @@ export class PictureShowComponent implements OnInit {
       this.pictures = pictures as Picture[];
     });
   }
-
-  private addToFav(id) {
-    let token = this.userService.getToken();
-    let decoded = this.helper.decodeToken(token);
-    const decodeIdUser = decoded._id;
-    console.log(decodeIdUser);
-
-    // this.userService.showUser(decoded._id).subscribe(res => {
-    //   this.userService;
-    // });
-  }
-
-  // private getAlbumsByUser(id) {
-  //   let token = this.userService.getToken();
-  //   let decoded = this.helper.decodeToken(token);
-  //   const decodeIdUser = decoded._id;
-  //   id = this.albumservice.getAlbumsByUser(decodeIdUser);
-  // }
 }

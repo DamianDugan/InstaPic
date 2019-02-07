@@ -18,9 +18,11 @@ const PictureSchema = new Schema(
       type: String,
       default: "N/A"
     },
-    likes: {
-      type: Array
-    },
+    likes: [
+      {
+        type: Array
+      }
+    ],
     comments: {
       type: Array
     },
