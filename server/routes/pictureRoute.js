@@ -44,4 +44,8 @@ router.get("/:id", pictureController.getOnePicture);
 
 router.delete("/delete/:id", pictureController.deleteOnePicture);
 
+router.put("/like/:id", pictureController.like);
+router.put("/unlike/:id", pictureController.unlike);
+router.get("/like/:id/:likes", pictureController.alreadyLiked);
+
 module.exports = router;

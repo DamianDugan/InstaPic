@@ -1,4 +1,4 @@
-<div class="text-center m-4  mx-auto">
+<div *ngIf="picture" class="text-center m-4  mx-auto">
   <img
     src="http://localhost:8000/{{ picture.image }}"
     class="mx-auto mt-4"
@@ -9,5 +9,19 @@
   <div class="card-body text-center">
     <p>Taken with a {{ picture.camera }}</p>
     <p class="card-text">{{ picture.description }}</p>
+
+    <ng-container *ngIf="liked; else elseBlock">
+      <a (click)="unlike()">
+        <i class="fa fa-heart"></i>
+        <div>{{ picture.likes.length }}</div>
+      </a>
+    </ng-container>
+
+    <ng-template #elseBlock>
+      <a (click)="like()">
+        <i class="fa fa-heart" style="color:red"></i>
+        <div>{{ picture.likes.length }}</div>
+      </a>
+    </ng-template>
   </div>
 </div>
