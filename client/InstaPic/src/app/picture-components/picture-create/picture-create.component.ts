@@ -1,3 +1,6 @@
+declare var require: any;
+var EXIF = require('exif-js');
+
 // getExif(image) {
 //   exif.EXIF.getData(image, function() {
 //     let make = exif.EXIF.getTag(this, "Make");
@@ -62,6 +65,7 @@ export class PictureCreateComponent implements OnInit {
     // override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
     this.uploader.onAfterAddingFile = file => {
       file.withCredentials = false;
+      console.log(this.getExif(file.file.rawFile));
     };
     // overide the onCompleteItem property of the uploader so we are
     // able to deal with the server response.
@@ -94,5 +98,13 @@ export class PictureCreateComponent implements OnInit {
       }
     );
     // this.router.navigate(['/home']);
+  }
+
+  getExif(image: any) {
+    EXIF.getData(image, function() {
+      const allMetaData = EXIF.getAllTags(this);
+      console.table(allMetaData);
+      this.metadata = allMetaData;
+    });
   }
 }

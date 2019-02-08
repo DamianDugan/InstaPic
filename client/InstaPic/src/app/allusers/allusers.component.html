@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="m-4 text-center">Here are all the users</h1>
+
+  <table *ngIf="users" class="table table-striped">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" class="text-center">
+        <td>
+          <a
+            class="btn btn-outline-dark btn-lg username"
+            (click)="singleUser(user._id)"
+            >{{ user.username }}</a
+          >
+        </td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

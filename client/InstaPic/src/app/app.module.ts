@@ -25,6 +25,7 @@ import { AlbumCreateComponent } from './album-create/album-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { SearchService } from './search/search.service';
+import { AllusersComponent } from './allusers/allusers.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SearchService } from './search/search.service';
     OneUserComponent,
     ShowOnePicComponent,
     AlbumCreateComponent,
-    SearchComponent
+    SearchComponent,
+    AllusersComponent
   ],
   imports: [
     BrowserModule,

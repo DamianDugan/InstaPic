@@ -35,6 +35,9 @@
       <li class="nav-item active" *ngIf="loggued()">
         <a class="nav-link" routerLink="/album">Create Album</a>
       </li>
+      <li class="nav-item active" *ngIf="loggued()">
+        <a class="nav-link" routerLink="/allusers">Follow users</a>
+      </li>
 
       <li class="nav-item active" *ngIf="loggued() && isAdmin()">
         <a class="nav-link" routerLink="/admin/users">Admin Users </a>

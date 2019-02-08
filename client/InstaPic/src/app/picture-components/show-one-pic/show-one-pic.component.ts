@@ -14,6 +14,7 @@ export class ShowOnePicComponent implements OnInit {
   picture: object; // Picture[] = [] as Picture[];
   helper = new JwtHelperService();
   liked: boolean;
+  users: Object;
 
   public id: string;
   constructor(
@@ -22,7 +23,18 @@ export class ShowOnePicComponent implements OnInit {
     private userService: UserService
   ) {}
 
+  singleUser(id: string) {
+    return this.userService.userGetOne(id);
+  }
+
   ngOnInit() {
+    const token = this.userService.getToken();
+    const decodedToken = this.helper.decodeToken(token);
+    const idDecode = decodedToken._id;
+    this.userService.showUser(idDecode).subscribe(user => {
+      console.log(user);
+      this.users = user;
+    });
     this.id = this.route.snapshot.paramMap.get('id');
     this.pictureService.showOnePicture(this.id).subscribe(pict => {
       this.picture = pict;

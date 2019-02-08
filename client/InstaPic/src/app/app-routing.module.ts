@@ -13,6 +13,7 @@ import { OneUserComponent } from './one-user/one-user.component';
 import { ShowOnePicComponent } from './picture-components/show-one-pic/show-one-pic.component';
 import { AlbumCreateComponent } from './album-create/album-create.component';
 import { SearchComponent } from './search/search.component';
+import { AllusersComponent } from './allusers/allusers.component';
 
 const routes: Routes = [
   {
@@ -68,6 +69,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
+  },
+  {
+    path: 'allusers',
+    component: AllusersComponent
   },
   // otherwise redirect to home
 

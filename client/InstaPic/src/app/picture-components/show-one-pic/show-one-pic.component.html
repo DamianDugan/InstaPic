@@ -7,8 +7,13 @@
   />
   <hr />
   <div class="card-body text-center">
-    <p>Taken with a {{ picture.camera }}</p>
-    <p class="card-text">{{ picture.description }}</p>
+    <p>{{ picture.camera }}</p>
+    <p class="card-text">
+      {{ picture.description }} Picture by
+      <a class="btn btn-outline-dark" (click)="singleUser(users._id)">
+        {{ users.username }}
+      </a>
+    </p>
 
     <ng-container *ngIf="liked; else elseBlock">
       <a (click)="like()">
@@ -20,7 +25,7 @@
     <ng-template #elseBlock>
       <a (click)="unlike()">
         <i class="fa fa-heart" style="color:red"></i>
-        <div>{{ picture.likes.length }}</div>
+        <div>{{ picture.likes.length }} likes</div>
       </a>
     </ng-template>
   </div>

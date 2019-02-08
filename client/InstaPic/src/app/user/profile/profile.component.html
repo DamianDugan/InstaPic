@@ -14,28 +14,36 @@
     <tbody>
       <tr *ngIf="users">
         <td><img src="http://localhost:8000/{{ users.picture }}" alt="" /></td>
-        <td>{{ users.username }}</td>
-        <td>{{ users.email }}</td>
+        <td>
+          <h2>{{ users.username }}</h2>
+        </td>
+        <td>
+          <h2>{{ users.email }}</h2>
+        </td>
 
         <ng-container *ngIf="users.followers; else elseBlock">
-          <td>{{ users.followers.length }}</td>
+          <td>
+            <h2>{{ users.followers.length }}</h2>
+          </td>
         </ng-container>
         <ng-template #elseBlock> <td>0</td> </ng-template>
 
         <ng-container *ngIf="users.following; else elseBlock">
-          <td>{{ users.following.length }}</td>
+          <td>
+            <h2>{{ users.following.length }}</h2>
+          </td>
         </ng-container>
         <ng-template #elseBlock> <td>0</td> </ng-template>
 
         <td>
-          <button routerLink="/user/update" class="btn btn-primary btn-sm">
+          <button routerLink="/user/update" class="btn btn-primary btn-lg">
             Update Account
           </button>
         </td>
         <td>
           <button
             (click)="deleteAccount(users._id)"
-            class="btn btn-danger btn-sm"
+            class="btn btn-danger btn-lg"
           >
             Delete Account
           </button>
@@ -65,7 +73,9 @@
     <div class="card  col-lg-3 text-center" *ngFor="let album of albums">
       <br />
       <i class="far fa-images"></i>
-      {{ album.name }}
+      <h2>
+        {{ album.name }}
+      </h2>
 
       <hr />
       <div class="card-body text-center"></div>

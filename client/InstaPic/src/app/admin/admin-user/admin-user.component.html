@@ -15,24 +15,24 @@
       <tr *ngFor="let user of users" class="text-center">
         <td>
           <a
-            class="btn btn-info btn-sm username"
+            class="btn btn-info btn-lg username"
             (click)="singleUser(user._id)"
             >{{ user.username }}</a
           >
         </td>
         <td>{{ user.email }}</td>
         <td>
-          <a class="btn btn-info btn-sm" (click)="userAdmin(user)">{{
+          <a class="btn btn-info btn-lg" (click)="userAdmin(user)">{{
             user.isAdmin
           }}</a>
         </td>
         <td>
-          <a class="btn btn-warning btn-sm" (click)="userBanned(user)">{{
+          <a class="btn btn-warning btn-lg" (click)="userBanned(user)">{{
             user.isBanned
           }}</a>
         </td>
         <td>
-          <button (click)="deleteUser(user._id)" class="btn btn-danger btn-sm">
+          <button (click)="deleteUser(user._id)" class="btn btn-danger btn-lg">
             Delete User
           </button>
         </td>

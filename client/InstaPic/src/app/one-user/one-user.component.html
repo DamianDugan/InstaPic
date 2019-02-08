@@ -1,27 +1,23 @@
 <div class="container text-center">
-  <h1>User</h1>
-
+  <h1 class="m-4">User's informations</h1>
+  <br />
   <div class="jumbotron">
     <h1 class="display-4">{{ currentUser.username }}</h1>
     <p class="lead">{{ currentUser.email }}</p>
     <hr class="my-4" />
     <p>Followers : {{ currentUser.followers.length }}</p>
     <p>Following : {{ currentUser.following.length }}</p>
-    <button
+    <!--
+      <button
       *ngIf="AdminToken || isAdmin() || idEqualCurrentUser"
       type="button"
       class="btn btn-info"
-    >
+      >
       Edit Account
     </button>
+  -->
     <p></p>
-    <button
-      *ngIf="AdminToken || idEqualCurrentUser"
-      type="button"
-      class="btn btn-danger"
-    >
-      Delete Account
-    </button>
+
     <p></p>
     <button (click)="follow()" class="btn btn-info">Follow</button> &nbsp;
     <button (click)="unfollow()" class="btn btn-info">Unfollow</button>
