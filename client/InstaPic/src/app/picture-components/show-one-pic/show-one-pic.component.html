@@ -10,7 +10,7 @@
     <p>Taken with a {{ picture.camera }}</p>
     <p class="card-text">{{ picture.description }}</p>
 
-    <ng-container *ngIf="liked; else elseBlock">
+    <ng-container *ngIf="!liked; else elseBlock">
       <a (click)="like()">
         <i class="fa fa-heart"></i>
         <div>{{ picture.likes.length }}</div>
