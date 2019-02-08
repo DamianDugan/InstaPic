@@ -11,14 +11,14 @@
     <p class="card-text">{{ picture.description }}</p>
 
     <ng-container *ngIf="liked; else elseBlock">
-      <a (click)="unlike()">
+      <a (click)="like()">
         <i class="fa fa-heart"></i>
         <div>{{ picture.likes.length }}</div>
       </a>
     </ng-container>
 
     <ng-template #elseBlock>
-      <a (click)="like()">
+      <a (click)="unlike()">
         <i class="fa fa-heart" style="color:red"></i>
         <div>{{ picture.likes.length }}</div>
       </a>
