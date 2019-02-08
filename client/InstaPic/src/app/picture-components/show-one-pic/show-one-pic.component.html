@@ -15,7 +15,7 @@
       </a>
     </p>
 
-    <ng-container *ngIf="liked; else elseBlock">
+    <ng-container *ngIf="!liked; else elseBlock">
       <a (click)="like()">
         <i class="fa fa-heart"></i>
         <div>{{ picture.likes.length }}</div>

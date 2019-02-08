@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Picture } from '../picture-create/picture.model';
-import { PictureService } from '../picture-create/picture.service';
-import { ActivatedRoute } from '@angular/router';
-import { UserService } from 'src/app/shared/user.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { Component, OnInit } from "@angular/core";
+import { Picture } from "../picture-create/picture.model";
+import { PictureService } from "../picture-create/picture.service";
+import { ActivatedRoute } from "@angular/router";
+import { UserService } from "src/app/shared/user.service";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Component({
-  selector: 'app-show-one-pic',
-  templateUrl: './show-one-pic.component.html',
-  styleUrls: ['./show-one-pic.component.css']
+  selector: "app-show-one-pic",
+  templateUrl: "./show-one-pic.component.html",
+  styleUrls: ["./show-one-pic.component.css"]
 })
 export class ShowOnePicComponent implements OnInit {
   picture: object; // Picture[] = [] as Picture[];
@@ -28,6 +28,7 @@ export class ShowOnePicComponent implements OnInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
     const token = this.userService.getToken();
     const decodedToken = this.helper.decodeToken(token);
     const idDecode = decodedToken._id;
@@ -36,6 +37,9 @@ export class ShowOnePicComponent implements OnInit {
       this.users = user;
     });
     this.id = this.route.snapshot.paramMap.get('id');
+=======
+    this.id = this.route.snapshot.paramMap.get("id");
+>>>>>>> cfd60abf4b0988db50d4aa011245f88676e5e862
     this.pictureService.showOnePicture(this.id).subscribe(pict => {
       this.picture = pict;
     });
@@ -46,10 +50,10 @@ export class ShowOnePicComponent implements OnInit {
     const user = this.userService.getToken();
     const decodedToken = this.helper.decodeToken(user);
 
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get("id");
 
     this.pictureService.isLiked(decodedToken._id, this.id).subscribe(test => {
-      if (test == 'Not liked') {
+      if (test == "Not liked") {
         this.liked = false;
       } else {
         this.liked = true;
@@ -61,7 +65,7 @@ export class ShowOnePicComponent implements OnInit {
     const user = this.userService.getToken();
     const decodedToken = this.helper.decodeToken(user);
 
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get("id");
 
     this.pictureService
       .likePicture(decodedToken._id, this.id)
@@ -75,7 +79,7 @@ export class ShowOnePicComponent implements OnInit {
     const user = this.userService.getToken();
     const decodedToken = this.helper.decodeToken(user);
 
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get("id");
 
     this.pictureService
       .unlikePicture(decodedToken._id, this.id)
