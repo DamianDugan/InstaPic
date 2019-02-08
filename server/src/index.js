@@ -28,6 +28,7 @@ app.listen(port, () => {
 });
 
 app.use(cors());
+app.use(require('morgan')('dev'));
 
 app.use(function(req, res, next) {
   res.setHeader(

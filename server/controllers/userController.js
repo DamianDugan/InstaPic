@@ -66,14 +66,17 @@ exports.deleteUser = function(req, res) {
 // Follow function
 
 exports.follow = function(req, res) {
+  console.log("megabite");
+  console.log(req.params.id); // id du mec qu'on veux follow
+  console.log(req.body.followers)
   User.update(
-    { _id: req.params.id },
+    { _id: req.body.followers },
     {
       $push: { followers: req.body.followers }
     }
   ).then(res => {
     User.update(
-      { _id: req.body.followers },
+      { _id: req.params.id },
       {
         $push: { following: req.params.id }
       }
