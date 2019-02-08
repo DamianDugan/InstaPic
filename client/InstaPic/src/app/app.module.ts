@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 // Components imports
 import { PictureCreateComponent } from './picture-components/picture-create/picture-create.component';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 // Routes
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +29,6 @@ import { SearchService } from './search/search.service';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
     SignUpComponent,
     PictureCreateComponent,
     ProfileComponent,

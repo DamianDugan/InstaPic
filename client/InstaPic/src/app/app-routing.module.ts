@@ -1,5 +1,4 @@
 import { Routes, RouterModule } from '@angular/router';
-import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { PictureCreateComponent } from './picture-components/picture-create/picture-create.component';
@@ -18,8 +17,7 @@ import { SearchComponent } from './search/search.component';
 const routes: Routes = [
   {
     path: 'signup',
-    component: UserComponent,
-    children: [{ path: '', component: SignUpComponent }]
+    component: SignUpComponent
   },
 
   {
